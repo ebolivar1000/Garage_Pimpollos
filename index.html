@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="El garage de los pimpollos — productos usados en excelente estado." />
+  <title>El garage de los pimpollos</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css?v=4" />
+</head>
+<body>
+  <div class="ambient" aria-hidden="true"></div>
+
+  <!-- Top Announcement Banner -->
+  <div class="top-banner" id="top-banner" aria-label="Anuncio especial" hidden>
+    <div class="top-banner__inner">
+      <span class="top-banner__badge">Venta de Garage</span>
+      <span class="top-banner__text">✨ ¡Gran liquidación! Productos seleccionados con hasta 50% de descuento y usados con cariño.</span>
+      <a href="#catalogo" class="top-banner__cta">Ver Ofertas</a>
+    </div>
+    <button class="top-banner__close" id="close-banner" aria-label="Cerrar anuncio">&times;</button>
+  </div>
+
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a class="logo brand-name" href="#">El garage de los pimpollos</a>
+      <nav class="nav" aria-label="Principal">
+        <a href="#catalogo">Catálogo</a>
+        <a href="#como">Cómo comprar</a>
+        <a href="#contacto">Contacto</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <p class="hero__eyebrow">Del garage a tu mesa · Usados con cariño</p>
+      <h1 class="hero__title">Tesoros usados,<br /><span class="hero__title-muted">precios de pimpollo.</span></h1>
+      <p class="hero__lead">
+        Revisamos cada pieza, mostramos fotos reales y comparamos con Mercado Libre. Precios en dólares y su equivalente en pesos al día.
+      </p>
+      <a class="hero__cta" href="#catalogo">Ver ofertas</a>
+    </section>
+
+    <section class="section" id="catalogo">
+      <div class="section__head">
+        <h2 class="section__title">Catálogo</h2>
+        <p class="section__subtitle">Filtra por categoría. Cotización de referencia abajo.</p>
+        <p class="fx-note" id="fx-rate-display"></p>
+      </div>
+      <div class="category-filters" id="category-filters"></div>
+      <div class="grid" id="product-grid"></div>
+      <p class="store-error" id="store-error" hidden></p>
+    </section>
+
+    <section class="section section--soft" id="como">
+      <div class="bento">
+        <article class="bento__card bento__card--wide">
+          <h3>Inspección real</h3>
+          <p>Cada publicación incluye estado, accesorios y características según el tipo de producto.</p>
+        </article>
+        <article class="bento__card">
+          <h3>Pago seguro</h3>
+          <p>Coordinamos transferencia o efectivo al retiro, según acuerdo.</p>
+        </article>
+        <article class="bento__card">
+          <h3>Referencia Mercado Libre</h3>
+          <p>El precio en Mercado Libre es orientativo; puede variar día a día.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="contacto">
+      <div class="cta-block">
+        <h2 class="cta-block__title">¿Buscas algo en particular?</h2>
+        <p class="cta-block__text">Escríbenos y te avisamos antes de publicarlo.</p>
+        <a class="btn btn--whatsapp btn--lg" id="global-wa" href="#">WhatsApp</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>© <span id="year"></span> <span class="brand-name">El garage de los pimpollos</span></p>
+  </footer>
+
+  <!-- Payment details modal -->
+  <dialog class="modal" id="payment-modal">
+    <div class="modal__inner">
+      <header class="modal__head">
+        <h3>Pagar con Mercado Pago / Transferencia</h3>
+        <button type="button" class="icon-btn" id="close-payment-modal" aria-label="Cerrar">×</button>
+      </header>
+      <div class="modal__body">
+        <div class="payment-summary">
+          <p class="payment-summary__label">Producto a comprar</p>
+          <p class="payment-summary__title" id="pay-product-title">—</p>
+          <div class="payment-price-row">
+            <div class="payment-price-block">
+              <span class="payment-price" id="pay-price-ars">—</span>
+              <span class="payment-price-sub" id="pay-price-usd">—</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="payment-instructions">
+          <p class="instructions-title">Cómo pagar:</p>
+          <div id="payment-methods-display" class="payment-methods-display"></div>
+          <p class="receipt-note">Después de pagar, enviá el comprobante por WhatsApp para confirmar tu compra.</p>
+        </div>
+      </div>
+      <footer class="modal__foot payment-foot">
+        <a id="btn-open-mp" href="https://www.mercadopago.com.ar" target="_blank" rel="noopener noreferrer" class="btn btn--mp" hidden>🔵 Abrir Mercado Pago</a>
+        <a href="#" target="_blank" rel="noopener noreferrer" class="btn btn--whatsapp" id="pay-wa-confirm">Enviar comprobante por WhatsApp</a>
+      </footer>
+    </div>
+  </dialog>
+
+  <script src="catalog.js?v=6"></script>
+  <script src="store.js?v=6"></script>
+  <script src="app.js?v=6"></script>
+</body>
+</html>

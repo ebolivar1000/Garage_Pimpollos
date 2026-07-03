@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>Acceso restringido</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="admin.css" />
+</head>
+<body>
+  <div id="login-view" class="login-view">
+    <form class="login-card" id="login-form">
+      <h1>Acceso restringido</h1>
+      <p class="login-card__sub">Solo personal autorizado</p>
+      <label class="field">
+        <span>Contraseña</span>
+        <input type="password" id="login-password" autocomplete="current-password" required />
+      </label>
+      <p class="form-error" id="login-error" hidden>Contraseña incorrecta.</p>
+      <button type="submit" class="btn btn--primary">Entrar</button>
+      <p class="login-reset-msg" id="login-reset-msg" hidden></p>
+      <button type="button" class="btn btn--ghost login-reset-btn" id="reset-password-btn">
+        Restablecer contraseña por email
+      </button>
+      <a class="login-card__back" href="index.html">← Volver a la tienda</a>
+    </form>
+  </div>
+
+  <div id="admin-view" class="admin" hidden>
+    <header class="admin-header">
+      <div class="admin-header__inner">
+        <div>
+          <a class="admin-header__brand" href="index.html" target="_blank" rel="noopener">← Ver tienda</a>
+          <h1 class="admin-header__title">Gestión del catálogo</h1>
+        </div>
+        <div class="admin-header__actions">
+          <span class="publish-badge" id="publish-badge" hidden>Cambios sin publicar</span>
+          <button type="button" class="btn btn--ghost" id="preview-btn">Vista previa</button>
+          <button type="button" class="btn btn--publish" id="publish-btn">Publicar en producción</button>
+          <button type="button" class="btn btn--ghost" id="logout-btn">Salir</button>
+        </div>
+      </div>
+    </header>
+
+    <div class="admin-layout">
+      <nav class="admin-nav" aria-label="Secciones">
+        <button type="button" class="admin-nav__btn is-active" data-panel="products">Productos</button>
+        <button type="button" class="admin-nav__btn" data-panel="categories">Categorías</button>
+        <button type="button" class="admin-nav__btn" data-panel="settings">Configuración</button>
+      </nav>
+
+      <main class="admin-main">
+        <div class="publish-banner" id="publish-status">
+          Editá productos y categorías. Cuando quieras que se vean en la tienda, publicá en producción.
+        </div>
+
+        <section class="panel is-active" id="panel-products">
+          <div class="panel__head">
+            <div>
+              <h2>Productos</h2>
+              <p>Publica, edita y clasifica por categoría.</p>
+            </div>
+            <button type="button" class="btn btn--primary" id="new-product-btn">+ Nuevo producto</button>
+          </div>
+          <div class="table-wrap">
+            <table class="data-table" id="products-table">
+              <thead>
+                <tr>
+                  <th>Producto</th>
+                  <th>Categoría</th>
+                  <th>USD</th>
+                  <th>ARS (ref.)</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+          </div>
+        </section>
+
+        <section class="panel" id="panel-categories">
+          <div class="panel__head">
+            <div>
+              <h2>Categorías</h2>
+              <p>Define categorías y qué propiedades tendrá cada una.</p>
+            </div>
+            <button type="button" class="btn btn--primary" id="new-category-btn">+ Nueva categoría</button>
+          </div>
+          <div class="cards-list" id="categories-list"></div>
+        </section>
+
+        <section class="panel" id="panel-settings">
+          <div class="panel__head">
+            <div>
+              <h2>Configuración</h2>
+              <p>Tipo de cambio, WhatsApp, métodos de pago y respaldo del catálogo.</p>
+            </div>
+          </div>
+
+          <form class="settings-form" id="settings-form">
+            <div class="form-grid">
+              <label class="field">
+                <span>Nombre de la tienda</span>
+                <input type="text" id="set-store-name" required />
+              </label>
+              <label class="field">
+                <span>WhatsApp (solo números, con código país)</span>
+                <input type="text" id="set-whatsapp" placeholder="541154188294" required />
+              </label>
+              <label class="field">
+                <span>Cotización USD → ARS</span>
+                <input type="number" id="set-fx-rate" min="1" step="1" required />
+              </label>
+              <label class="field field--full">
+                <span>Nueva contraseña de acceso</span>
+                <input type="password" id="set-password" placeholder="Dejar vacío para no cambiar" autocomplete="new-password" />
+              </label>
+            </div>
+            <p class="hint">Ejemplo: 150 USD × 1480 = <strong id="fx-preview">$222.000</strong></p>
+
+            <div class="payment-methods-block">
+              <h3>Métodos de pago</h3>
+              <p class="hint">Activá los métodos que aceptás y cargá solo la cuenta, wallet o CVU correspondiente.</p>
+              <div id="payment-methods-list" class="payment-methods-list"></div>
+            </div>
+
+            <button type="submit" class="btn btn--primary">Guardar configuración</button>
+          </form>
+
+          <div class="backup-block">
+            <h3>Respaldo del catálogo</h3>
+            <p>Al publicar se descargan <strong>2 archivos</strong>: <code>catalog.json</code> y <code>catalog.js</code>. Copiá los dos a la carpeta de la tienda.</p>
+            <div class="backup-actions">
+              <button type="button" class="btn btn--secondary" id="export-btn">Descargar catalog.json + catalog.js</button>
+              <label class="btn btn--secondary file-btn">
+                Importar JSON
+                <input type="file" id="import-file" accept="application/json,.json" hidden />
+              </label>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+  </div>
+
+  <dialog class="modal" id="product-modal">
+    <form class="modal__inner" id="product-form">
+      <header class="modal__head">
+        <h3 id="product-modal-title">Nuevo producto</h3>
+        <button type="button" class="icon-btn" data-close-modal aria-label="Cerrar">×</button>
+      </header>
+      <div class="modal__body">
+        <input type="hidden" id="product-id" />
+        <div class="form-grid">
+          <label class="field field--full">
+            <span>Título</span>
+            <input type="text" id="product-title" required />
+          </label>
+          <label class="field">
+            <span>Categoría</span>
+            <select id="product-category" required></select>
+          </label>
+          <label class="field">
+            <span>Estado (badge)</span>
+            <input type="text" id="product-condition" placeholder="Usado, Como nuevo…" required />
+          </label>
+          <label class="field">
+            <span>Precio USD</span>
+            <input type="number" id="product-price-usd" min="0" step="1" required />
+          </label>
+          <label class="field">
+            <span>Referencia Mercado Libre (USD)</span>
+            <input type="number" id="product-price-ml" min="0" step="1" required />
+          </label>
+          <label class="field field--full">
+            <span>Nota adicional (opcional)</span>
+            <textarea id="product-note" rows="2"></textarea>
+          </label>
+          <label class="field field--full">
+            <span>Imágenes del producto</span>
+            <input type="file" id="product-image-file" accept="image/*" multiple />
+            <p class="hint">Seleccioná varias fotos. La primera es la portada; podés cambiarla abajo.</p>
+            <div class="image-gallery" id="product-image-gallery"></div>
+          </label>
+          <label class="field field--full">
+            <span>Agregar imagen por URL</span>
+            <div class="image-url-input-group">
+              <input type="url" id="product-image-url" placeholder="https://..." />
+              <button type="button" class="btn btn--secondary" id="add-image-url-btn">Agregar imagen</button>
+            </div>
+            <p class="hint">Usá imágenes externas para evitar límite de almacenamiento local y mantener el catálogo liviano.</p>
+          </label>
+        </div>
+        <fieldset class="props-fieldset">
+          <legend>Propiedades del producto</legend>
+          <p class="hint">Según la categoría elegida. Podés agregar campos extra.</p>
+          <div id="product-properties"></div>
+          <button type="button" class="btn btn--ghost btn--sm" id="add-property-btn">+ Agregar propiedad</button>
+        </fieldset>
+        <div class="form-error-list" id="product-form-errors" hidden></div>
+      </div>
+      <footer class="modal__foot">
+        <button type="button" class="btn btn--ghost" data-close-modal>Cancelar</button>
+        <button type="submit" class="btn btn--primary">Guardar producto</button>
+      </footer>
+    </form>
+  </dialog>
+
+  <dialog class="modal" id="category-modal">
+    <form class="modal__inner" id="category-form">
+      <header class="modal__head">
+        <h3 id="category-modal-title">Nueva categoría</h3>
+        <button type="button" class="icon-btn" data-close-modal aria-label="Cerrar">×</button>
+      </header>
+      <div class="modal__body">
+        <input type="hidden" id="category-id" />
+        <label class="field">
+          <span>Nombre</span>
+          <input type="text" id="category-name" required />
+        </label>
+        <label class="field">
+          <span>Orden (0 = primero)</span>
+          <input type="number" id="category-order" min="0" step="1" value="0" />
+        </label>
+        <fieldset class="props-fieldset">
+          <legend>Campos de propiedades</legend>
+          <p class="hint">Estos campos aparecerán al crear productos de esta categoría.</p>
+          <div id="category-fields"></div>
+          <button type="button" class="btn btn--ghost btn--sm" id="add-category-field-btn">+ Agregar campo</button>
+        </fieldset>
+      </div>
+      <footer class="modal__foot">
+        <button type="button" class="btn btn--ghost" data-close-modal>Cancelar</button>
+        <button type="submit" class="btn btn--primary">Guardar categoría</button>
+      </footer>
+    </form>
+  </dialog>
+
+  <dialog class="modal publish-dialog" id="validation-dialog">
+    <div class="modal__inner">
+      <header class="modal__head">
+        <h3>No se puede publicar todavía</h3>
+        <button type="button" class="icon-btn" data-close-validation aria-label="Cerrar">×</button>
+      </header>
+      <div class="modal__body">
+        <p>Completá o corregí lo siguiente antes de publicar:</p>
+        <ul class="validation-list" id="validation-list"></ul>
+      </div>
+      <footer class="modal__foot">
+        <button type="button" class="btn btn--primary" data-close-validation>Entendido</button>
+      </footer>
+    </div>
+  </dialog>
+
+  <dialog class="modal publish-dialog" id="publish-dialog">
+    <div class="modal__inner">
+      <header class="modal__head">
+        <h3>Publicación lista</h3>
+        <button type="button" class="icon-btn" data-close-publish aria-label="Cerrar">×</button>
+      </header>
+      <div class="modal__body">
+        <p>Se descargaron <strong>2 archivos</strong> en tu carpeta <strong>Descargas</strong>:</p>
+        <ol class="publish-steps">
+          <li><code>catalog.json</code></li>
+          <li><code>catalog.js</code></li>
+        </ol>
+        <p>Ahora copiá <strong>los dos</strong> a esta carpeta (reemplazando los que ya existen):</p>
+        <p class="publish-path"><code>C:\Users\everth\.cursor\projects\empty-window\used-store</code></p>
+        <p class="hint">Si solo ves <code>catalog.json</code>, revisá Descargas: a veces el navegador pide confirmación para el segundo archivo.</p>
+        <p>Por último, abrí <code>index.html</code> y apretá <strong>Ctrl + F5</strong>.</p>
+      </div>
+      <footer class="modal__foot">
+        <button type="button" class="btn btn--ghost" data-close-publish>Cerrar</button>
+        <button type="button" class="btn btn--primary" id="open-store-btn">Abrir tienda</button>
+      </footer>
+    </div>
+  </dialog>
+
+  <div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
+
+  <script src="catalog.js?v=6"></script>
+  <script src="store.js?v=6"></script>
+  <script src="admin.js?v=6"></script>
+</body>
+</html>

@@ -1,0 +1,7 @@
+Abrir PowerShell
+
+--Ir a la ruta del proyecto
+cd "C:\Users\everth\.cursor\projects\empty-window\used-store"
+
+--Impactar cambios en Prod
+powershell -ExecutionPolicy Bypass -Command "vercel --prod"
