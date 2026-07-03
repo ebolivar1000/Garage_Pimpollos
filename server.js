@@ -1,7 +1,9 @@
 const http = require('http');
 const fs = require('fs');
 const path = require('path');
+const util = require('util');
 const { exec } = require('child_process');
+const execAsync = util.promisify(exec);
 const {
   ADMIN_RESET_EMAIL,
   DEFAULT_ADMIN_PASSWORD,
@@ -10,6 +12,28 @@ const {
   buildResetUrl,
   sendResetEmail,
 } = require('./lib/password-reset');
+
+async function hasGitRemote() {
+  try {
+    await execAsync('git remote get-url origin', { cwd: PUBLIC_DIR });
+    return true;
+  } catch {
+    return false;
+  }
+}
+
+async function pushCatalogToGit() {
+  try {
+    await execAsync('git add catalog.json catalog.js', { cwd: PUBLIC_DIR });
+    await execAsync('git commit -m "Publish catalog update"', { cwd: PUBLIC_DIR });
+    await execAsync('git push -u origin main', { cwd: PUBLIC_DIR });
+    return true;
+  } catch (err) {
+    const message = err.stderr || err.message || String(err);
+    console.error('[Server] Git publish error:', message);
+    return false;
+  }
+}
 
 const PORT = 3000;
 const PUBLIC_DIR = __dirname;
@@ -93,7 +117,7 @@ const server = http.createServer((req, res) => {
   if (req.method === 'POST' && req.url === '/api/publish') {
     let body = '';
     req.on('data', chunk => body += chunk);
-    req.on('end', () => {
+    req.on('end', async () => {
       try {
         const catalogData = JSON.parse(body);
 
@@ -113,26 +137,32 @@ const server = http.createServer((req, res) => {
 
         console.log('[Server] catalog.json and catalog.js updated locally.');
 
-        // 3. Trigger automatic deployment to Vercel (Production)
-        console.log('[Server] Deploying to Vercel production...');
-        
-        // Execute vercel --prod --yes. Since this is a static project, it builds in milliseconds.
-        exec('npx vercel --prod --yes', { cwd: PUBLIC_DIR }, (err, stdout, stderr) => {
-          if (err) {
-            console.error('[Server] Vercel deployment error:', err);
-            console.error('[Server] Stderr:', stderr);
-            res.writeHead(500, { 'Content-Type': 'application/json' });
-            res.end(JSON.stringify({ success: false, error: err.message || 'Error en despliegue' }));
-            return;
+        const remoteExists = await hasGitRemote();
+        if (remoteExists) {
+          console.log('[Server] Git remote found, pushing updates to origin/main...');
+          const gitSuccess = await pushCatalogToGit();
+          if (!gitSuccess) {
+            console.error('[Server] Git push failed. Falling back to direct Vercel deploy.');
           }
+        } else {
+          console.log('[Server] No Git remote configured. Skipping git push.');
+        }
 
+        console.log('[Server] Deploying to Vercel production...');
+        try {
+          const { stdout, stderr } = await execAsync('npx vercel --prod --yes', { cwd: PUBLIC_DIR });
           console.log('[Server] Deployment successful:', stdout);
+          if (stderr) console.warn('[Server] Deployment stderr:', stderr);
           res.writeHead(200, { 'Content-Type': 'application/json' });
-          res.end(JSON.stringify({ 
-            success: true, 
-            url: 'https://lospimpollos.vercel.app' // Primary friendly domain
+          res.end(JSON.stringify({
+            success: true,
+            url: 'https://lospimpollos.vercel.app',
           }));
-        });
+        } catch (err) {
+          console.error('[Server] Vercel deployment error:', err);
+          res.writeHead(500, { 'Content-Type': 'application/json' });
+          res.end(JSON.stringify({ success: false, error: err.stderr || err.message || 'Error en despliegue' }));
+        }
 
       } catch (err) {
         console.error('[Server] Publish error:', err);
