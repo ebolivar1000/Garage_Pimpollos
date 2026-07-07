@@ -3,38 +3,50 @@
   "settings": {
     "storeName": "El garage de los Pimpollos",
     "whatsappPhone": "541154188294",
-    "usdToArsRate": 1480,
+    "usdToArsRate": 1500,
     "transferCvu": "0000003100359754352113",
     "paymentMethods": [
       {
         "id": "mp-ars",
         "name": "Mercado Pago / Transferencia ARS (CVU)",
         "enabled": true,
-        "account": "0000003100359754352113"
+        "account": "0000003100359754352113",
+        "bankName": ""
       },
       {
         "id": "paypal",
         "name": "PayPal",
         "enabled": false,
-        "account": ""
+        "account": "",
+        "bankName": ""
       },
       {
         "id": "usd-bank",
         "name": "Cuenta bancaria USD (EE.UU.)",
         "enabled": false,
-        "account": ""
+        "account": "",
+        "bankName": ""
+      },
+      {
+        "id": "usd-bank-ars",
+        "name": "Cuenta bancaria en USD (En Argentina)",
+        "enabled": true,
+        "account": "0070999031004130429168",
+        "bankName": "Banco Galicia"
       },
       {
         "id": "usdt",
         "name": "USDT",
         "enabled": false,
-        "account": ""
+        "account": "",
+        "bankName": ""
       },
       {
         "id": "bitcoin",
         "name": "Bitcoin",
         "enabled": false,
-        "account": ""
+        "account": "",
+        "bankName": ""
       }
     ]
   },
@@ -244,19 +256,67 @@
       "categoryId": "cat-mqlb3jz3-hxtmr",
       "title": "Reloj Samsung Galaxy Watch 4 De 44 Mm Negro",
       "condition": "Usado",
-      "priceUsd": 90,
-      "priceMlUsd": 110,
-      "note": "Color: Negro\nTamaño de caja: 44 mm\nPantalla: 1.4\" Super AMOLED\nResolución: 450 × 450 píxeles\nProtección: Corning Gorilla Glass DX+\nSistema operativo: Wear OS Powered by Samsung\nInterfaz: One UI Watch\nProcesador: Exynos W920 Dual-Core 1.18 GHz (5 nm)\nMemoria RAM: 1.5 GB\nAlmacenamiento interno: 16 GB\nBatería: 361 mAh\nAutonomía: Hasta 40 horas (según el uso)\nCarga: Inalámbrica (WPC/Qi)\nBluetooth: 5.0\nWi-Fi: 802.11 a/b/g/n (2.4 y 5 GHz)\nNFC: Sí\nGPS: Sí (GPS, GLONASS, Galileo y BeiDou)\nResistencia al agua: 5 ATM + IP68\nCertificación militar: MIL-STD-810G\nMaterial de la caja: Armor Aluminum (aluminio)\nDimensiones: 44.4 × 43.3 × 9.8 mm\nPeso: 30.3 g\nCorrea: 20 mm intercambiable\nAltavoz: Sí\nMicrófono: Sí\nSensores:\nFrecuencia cardíaca\nElectrocardiograma (ECG)\nOxígeno en sangre (SpO₂)\nComposición corporal (BIA)\nAcelerómetro\nGiroscopio\nBarómetro\nSensor geomagnético\nSensor de luz ambiental\nFunciones:\nMonitoreo del sueño\nConteo de pasos\nRegistro de actividad física\nMás de 90 modos de entrenamiento\nNotificaciones de llamadas y mensajes\nControl de música\nPagos con NFC (según disponibilidad)\nCompatible con Google Play, Google Maps y otras apps de Wear OS\nCompatibilidad: Smartphones Android (Android 6.0 o superior con al menos 1.5 GB de RAM)",
       "images": [
         "https://photos.app.goo.gl/ghev1ZxMGa5s9tdz9",
         "https://photos.app.goo.gl/kFAQxWcoCkogDQiP6"
       ],
       "image": "https://photos.app.goo.gl/ghev1ZxMGa5s9tdz9",
+      "priceUsd": 90,
+      "priceMlUsd": 110,
+      "note": "Color: Negro\nTamaño de caja: 44 mm\nPantalla: 1.4\" Super AMOLED\nResolución: 450 × 450 píxeles\nProtección: Corning Gorilla Glass DX+\nSistema operativo: Wear OS Powered by Samsung\nInterfaz: One UI Watch\nProcesador: Exynos W920 Dual-Core 1.18 GHz (5 nm)\nMemoria RAM: 1.5 GB\nAlmacenamiento interno: 16 GB\nBatería: 361 mAh\nAutonomía: Hasta 40 horas (según el uso)\nCarga: Inalámbrica (WPC/Qi)\nBluetooth: 5.0\nWi-Fi: 802.11 a/b/g/n (2.4 y 5 GHz)\nNFC: Sí\nGPS: Sí (GPS, GLONASS, Galileo y BeiDou)\nResistencia al agua: 5 ATM + IP68\nCertificación militar: MIL-STD-810G\nMaterial de la caja: Armor Aluminum (aluminio)\nDimensiones: 44.4 × 43.3 × 9.8 mm\nPeso: 30.3 g\nCorrea: 20 mm intercambiable\nAltavoz: Sí\nMicrófono: Sí\nSensores:\nFrecuencia cardíaca\nElectrocardiograma (ECG)\nOxígeno en sangre (SpO₂)\nComposición corporal (BIA)\nAcelerómetro\nGiroscopio\nBarómetro\nSensor geomagnético\nSensor de luz ambiental\nFunciones:\nMonitoreo del sueño\nConteo de pasos\nRegistro de actividad física\nMás de 90 modos de entrenamiento\nNotificaciones de llamadas y mensajes\nControl de música\nPagos con NFC (según disponibilidad)\nCompatible con Google Play, Google Maps y otras apps de Wear OS\nCompatibilidad: Smartphones Android (Android 6.0 o superior con al menos 1.5 GB de RAM)",
       "properties": {
         "Estado": "Excelente",
         "Adicionales": "En las notas"
       }
+    },
+    {
+      "id": "prod-mrb5pbov-3brsb",
+      "categoryId": "cat-celulares",
+      "title": "Samsung S23 Ultra",
+      "condition": "Usado",
+      "priceUsd": 500,
+      "priceMlUsd": 600,
+      "note": "Tiene un detalle en la parte inferior izquierda de pantalla, pero funciona perfectamente.",
+      "images": [
+        "https://raw.githubusercontent.com/ebolivar1000/Garage_Pimpollos/main/images/s23.png",
+        "https://raw.githubusercontent.com/ebolivar1000/Garage_Pimpollos/main/images/s23_2.png",
+        "https://raw.githubusercontent.com/ebolivar1000/Garage_Pimpollos/main/images/s23_3.png"
+      ],
+      "image": "https://raw.githubusercontent.com/ebolivar1000/Garage_Pimpollos/main/images/s23.png",
+      "properties": {
+        "Pantalla": "AMOLED de 6.8",
+        "RAM": "12 GB",
+        "Almacenamiento": "256GB",
+        "Batería": "5000mh",
+        "Estado": "Usado",
+        "Marca": "Samsung",
+        "Adicionales": "Procesador Snapdragon 8 Gen 2 Octa-Core de 3.36GHz con 12GB de RAM. Resistente al agua. Con reconocimiento facial y sensor de huella dactilar. Tiene 4 cámaras traseras de 200Mpx/10Mpx/12Mpx/10Mpx."
+      }
+    },
+    {
+      "id": "prod-mrb6bp9x-cety5",
+      "categoryId": "cat-celulares",
+      "title": "Samsung S21 FE",
+      "condition": "Usado",
+      "priceUsd": 360,
+      "priceMlUsd": 400,
+      "note": "Procesador Exynos 2100 Octa-Core de 2.9GHz con 6GB de RAM.",
+      "images": [
+        "https://raw.githubusercontent.com/ebolivar1000/Garage_Pimpollos/main/images/s21.jpg",
+        "https://raw.githubusercontent.com/ebolivar1000/Garage_Pimpollos/main/images/s21_2.jpg",
+        "https://raw.githubusercontent.com/ebolivar1000/Garage_Pimpollos/main/images/s21_3.png"
+      ],
+      "image": "https://raw.githubusercontent.com/ebolivar1000/Garage_Pimpollos/main/images/s21.jpg",
+      "properties": {
+        "Pantalla": "AMOLED de 6.4\"",
+        "RAM": "6gb",
+        "Almacenamiento": "128 gb",
+        "Batería": "4500 mAh",
+        "Estado": "Usado",
+        "Marca": "Samsung",
+        "Adicionales": "Resistente al agua. Con reconocimiento facial y sensor de huella dactilar. Resistente al polvo y a las caídas."
+      }
     }
   ],
-  "publishedAt": "2026-07-03T18:28:15.984Z"
+  "publishedAt": "2026-07-07T21:41:35.494Z"
 }
