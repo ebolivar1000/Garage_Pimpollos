@@ -119,7 +119,9 @@
                 <input type="password" id="set-password" placeholder="Dejar vacío para no cambiar" autocomplete="new-password" />
               </label>
             </div>
-            <p class="hint">Ejemplo: 150 USD × 1480 = <strong id="fx-preview">$222.000</strong></p>
+            <p class="hint">
+              Ejemplo: 150 USD × <strong id="fx-rate-value">1480</strong> = <strong id="fx-preview">$222.000</strong>
+            </p>
 
             <div class="payment-methods-block">
               <h3>Métodos de pago</h3>
@@ -192,6 +194,7 @@
               <button type="button" class="btn btn--secondary" id="add-image-url-btn">Agregar imagen</button>
             </div>
             <p class="hint">Usá imágenes externas para evitar límite de almacenamiento local y mantener el catálogo liviano.</p>
+            <p class="hint">Si está en GitHub podés pegar el enlace blob y lo convertimos a raw.githubusercontent.com automáticamente.</p>
           </label>
         </div>
         <fieldset class="props-fieldset">
