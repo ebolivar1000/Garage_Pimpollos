@@ -176,6 +176,18 @@
               <span class="price-secondary price-secondary--usd">${formatUsd(product.priceUsd)} USD</span>
             </div>
           </div>
+          <div class="price-row">
+            <span class="price-row__label">Referencia Mercado Libre</span>
+            <div class="price-stack price-stack--ml">
+              <span class="price-ml">
+                <span class="ml-pill">ML</span>
+                ${formatArs(mlArs)}
+              </span>
+            </div>
+          </div>
+        </div>
+        <div class="savings" aria-label="Ahorro estimado">
+          Ahorro · ${formatArs(savingsArs)} <span>(${savingsPct}%)</span>
         </div>
         ${renderSpecs(product.properties)}
         ${product.note ? `<p class="card__note">${escapeHtml(product.note)}</p>` : ""}
