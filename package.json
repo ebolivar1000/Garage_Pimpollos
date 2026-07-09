@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 {
   "name": "used-store",
   "version": "1.0.0",
@@ -12,4 +13,20 @@
     "node-fetch": "^3.3.2",
     "dotenv": "^16.4.5"
   }
+=======
+{
+  "name": "used-store",
+  "version": "1.0.0",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "cors": "^2.8.5",
+    "node-fetch": "^3.3.2",
+    "dotenv": "^16.4.5"
+  }
+>>>>>>> c9594787dfc4674f0a8fb82329f65d3be0075699
 }
