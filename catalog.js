@@ -246,7 +246,7 @@ window.GARAGE_CATALOG_FILE = {
       "condition": "Usado",
       "priceUsd": 90,
       "priceMlUsd": 110,
-      "note": "Color: Negro\nTamaño de caja: 44 mm\nPantalla: 1.4\" Super AMOLED\nResolución: 450 × 450 píxeles\nProtección: Corning Gorilla Glass DX+\nSistema operativo: Wear OS Powered by Samsung\nInterfaz: One UI Watch\nProcesador: Exynos W920 Dual-Core 1.18 GHz (5 nm)\nMemoria RAM: 1.5 GB\nAlmacenamiento interno: 16 GB\nBatería: 361 mAh\nAutonomía: Hasta 40 horas (según el uso)\nCarga: Inalámbrica (WPC/Qi)\nBluetooth: 5.0\nWi-Fi: 802.11 a/b/g/n (2.4 y 5 GHz)\nNFC: Sí\nGPS: Sí (GPS, GLONASS, Galileo y BeiDou)\nResistencia al agua: 5 ATM + IP68\nCertificación militar: MIL-STD-810G\nMaterial de la caja: Armor Aluminum (aluminio)\nDimensiones: 44.4 × 43.3 × 9.8 mm\nPeso: 30.3 g\nCorrea: 20 mm intercambiable\nAltavoz: Sí\nMicrófono: Sí\nSensores:\nFrecuencia cardíaca\nElectrocardiograma (ECG)\nOxígeno en sangre (SpO₂)\nComposición corporal (BIA)\nAcelerómetro\nGiroscopio\nBarómetro\nSensor geomagnético\nSensor de luz ambiental\nFunciones:\nMonitoreo del sueño\nConteo de pasos\nRegistro de actividad física\nMás de 90 modos de entrenamiento\nNotificaciones de llamadas y mensajes\nControl de música\nPagos con NFC (según disponibilidad)\nCompatible con Google Play, Google Maps y otras apps de Wear OS\nCompatibilidad: Smartphones Android (Android 6.0 o superior con al menos 1.5 GB de RAM)",
+      "note": "Color: Negro\nTamaño de caja: 44 mm\nPantalla: 1.4\" Super AMOLED\nResolución: 450 × 450 píxeles\nProtección: Corning Gorilla Glass DX+\nSistema operativo: Wear OS Powered by Samsung\nInterfaz: One UI Watch\nProcesador: Exynos W920 Dual-Core 1.18 GHz (5 nm)\nMemoria RAM: 1.5 GB\nAlmacenamiento interno: 16 GB\nBatería: 361 mAh\nAutonomía: Hasta 40 horas (según el uso)\nCarga: Inalámbrica (WPC/Qi)\nBluetooth: 5.0\nWi-Fi: 802.11 a/b/g/n (2.4 y 5 GHz)\nNFC: Sí\nGPS: Sí (GPS, GLONASS, Galileo y BeiDou)\nResistencia al agua: 5 ATM + IP68\nCertificación militar: MIL-STD-810G\nMaterial de la caja: Armor Aluminum (aluminio)\nDimensiones: 44.4 × 43.3 × 9.8 mm\nPeso: 30.3 g\nCorrea: 20 mm intercambiable   \nAltavoz: Sí\nMicrófono: Sí\nSensores:\nFrecuencia cardíaca\nElectrocardiograma (ECG)\nOxígeno en sangre (SpO₂)\nComposición corporal (BIA)\nAcelerómetro\nGiroscopio\nBarómetro\nSensor geomagnético\nSensor de luz ambiental\nFunciones:\nMonitoreo del sueño\nConteo de pasos\nRegistro de actividad física\nMás de 90 modos de entrenamiento\nNotificaciones de llamadas y mensajes\nControl de música\nPagos con NFC (según disponibilidad)\nCompatible con Google Play, Google Maps y otras apps de Wear OS\nCompatibilidad: Smartphones Android (Android 6.0 o superior con al menos 1.5 GB de RAM)",
       "images": [
         "https://github.com/ebolivar1000/Garage_Pimpollos/blob/main/images/reloj.jpg"
       ],
@@ -305,5 +305,5 @@ window.GARAGE_CATALOG_FILE = {
       }
     }
   ],
-  "publishedAt": "2026-07-09T18:40:35.301Z"
+  "publishedAt": "2026-07-09T19:20:42.842Z"
 };
