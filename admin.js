@@ -718,6 +718,7 @@ document.getElementById("add-image-url-btn").addEventListener("click", () => {
 });
 
 function isValidImageUrl(value) {
+  if (value.startsWith("/") || value.startsWith("images/")) return true;
   try {
     const url = new URL(value);
     return url.protocol === "http:" || url.protocol === "https:";
