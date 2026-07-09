@@ -378,10 +378,14 @@ async function savePublished(catalog, { download = false } = {}) {
   try {
     localStorage.setItem(PUBLISHED_KEY, JSON.stringify(published));
   } catch (err) {
+    console.warn("No se pudo guardar la versión publicada en LocalStorage:", err);
     if (download) {
       await exportCatalogFile(published);
+    } else if (err?.name !== "QuotaExceededError") {
+      throw err;
     }
-    throw err;
+    // Si es QuotaExceededError y no estamos forzando descarga, 
+    // lo ignoramos para permitir que el proceso siga hacia la API de Vercel/GitHub
   }
   if (download) await exportCatalogFile(published);
   return published;
