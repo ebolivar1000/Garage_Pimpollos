@@ -304,7 +304,74 @@ window.GARAGE_CATALOG_FILE = {
         "Marca": "Samsung",
         "Adicionales": "Resistente al agua. Con reconocimiento facial y sensor de huella dactilar. Resistente al polvo y a las caídas."
       }
+    },
+    {
+      "id": "prod-mrdxx1ut-mbc78",
+      "categoryId": "cat-mqlb3jz3-hxtmr",
+      "title": "CAMARA DJI Osmo  Action 1",
+      "condition": "Usado",
+      "priceUsd": 120,
+      "priceMlUsd": 150,
+      "note": "",
+      "images": [
+        "images/osmo.jpg",
+        "images/osmo2.jpg",
+        "images/osmo3.jpg"
+      ],
+      "image": "images/osmo.jpg",
+      "properties": {
+        "Estado": "Usado",
+        "Adicionales": "La DJI Osmo Action 1 es una cámara de acción ultrarresistente. Cuenta con doble pantalla (frontal a color para vlogs), estabilización electrónica RockSteady, grabación de video 4K a 60 fps y es sumergible hasta 11 metros sin necesidad de carcasa.Especificaciones Técnicas PrincipalesSensor y Lente: Sensor CMOS de 1/2.3\", apertura f/2.8 y un gran angular de 145°.Calidad de Video: 4K (60 fps), 2.7K (60 fps), 1080p (hasta 240 fps para cámara lenta) y HDR.Fotografía: 12 megapíxeles (formatos RAW o JPEG).Pantallas: Trasera táctil de 2.25 pulgadas y frontal a color de 1.4 pulgadas.Estabilización: Tecnología RockSteady que elimina vibraciones mecánicas.Batería: Capacidad de 1.300 mAh, con una autonomía de hasta 135 minutos a 1080p.Almacenamiento: Tarjetas microSD de hasta 256 GB"
+      }
+    },
+    {
+      "id": "prod-mrdycroy-8oljp",
+      "categoryId": "cat-mq8p7gwk-qdjjq",
+      "title": "Laptop - Modelo del sistema HP ProBook 440 G6",
+      "condition": "Usado",
+      "priceUsd": 300,
+      "priceMlUsd": 400,
+      "note": "",
+      "images": [
+        "images/hp.jpg",
+        "images/hp2.jpg",
+        "images/hp3.jpg"
+      ],
+      "image": "images/hp.jpg",
+      "properties": {
+        "Estado": "Excelente",
+        "RAM": "8GB",
+        "Procesador": "Intel Core i5  @ 1.60GHz, 1800 Mhz, 4 procesadores principales, 8 procesadores lógicos",
+        "Tamaño": "14,5\"",
+        "Nucleos": "8",
+        "Marca": "HP",
+        "Adicionales": "Con su cargador"
+      }
+    },
+    {
+      "id": "prod-mrdyswh6-o1ku3",
+      "categoryId": "cat-mq8p7gwk-qdjjq",
+      "title": "Hp Elitebook 640 G11 Ultra 5 (PARA REPARAR)",
+      "condition": "Usado",
+      "priceUsd": 160,
+      "priceMlUsd": 2000,
+      "note": "!Hay que revisar la placa base!",
+      "images": [
+        "images/hp_reparar.jpg",
+        "images/hp_reparar2.jpg",
+        "images/hp_reparar3.jpg"
+      ],
+      "image": "images/hp_reparar.jpg",
+      "properties": {
+        "Estado": "A reparar",
+        "RAM": "16GB",
+        "Procesador": "Intel i5 Ultra 135U, 12 procesdores principales , 14 procesadores logicos",
+        "Tamaño": "14,5\"",
+        "Nucleos": "12",
+        "Marca": "HP",
+        "Adicionales": "Es una ganga que quien la repare se lleva una JOYA"
+      }
     }
   ],
-  "publishedAt": "2026-07-09T20:02:25.727Z"
+  "publishedAt": "2026-07-09T20:34:30.878Z"
 };
