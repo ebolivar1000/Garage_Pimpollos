@@ -1,1 +1,16 @@
+# Vercel
 .vercel
+
+# Dependencies
+node_modules/
+
+# Zip / temp files
+*.zip
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+npm-debug.log*
