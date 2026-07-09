@@ -405,14 +405,17 @@ async function publishCatalog(catalog) {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(published),
       });
-      if (res.ok) {
-        const result = await res.json();
-        if (result.success) {
-          return { method: "api", url: result.url };
-        }
+      
+      const result = await res.json();
+      
+      if (res.ok && result.success) {
+        return { method: "api", url: result.url || window.location.origin, message: result.message };
+      } else {
+        throw new Error(result.error || "No se pudo guardar remotamente.");
       }
     } catch (err) {
       console.warn("Could not publish via local server API, falling back to download:", err);
+      alert("Error en la sincronización remota: " + err.message + "\n\nSe descargará una copia de respaldo.");
     }
   }
 

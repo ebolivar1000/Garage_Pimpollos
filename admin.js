@@ -78,7 +78,7 @@ async function handlePublish() {
 
   try {
     btn.disabled = true;
-    btn.textContent = "Publicando…";
+    btn.textContent = "Sincronizando con la nube...";
     const result = await S.publishCatalog(catalog);
     updatePublishStatus();
 
@@ -86,22 +86,22 @@ async function handlePublish() {
     const modalTitle = document.querySelector("#publish-dialog h3");
 
     if (result && result.method === "api") {
-      if (modalTitle) modalTitle.textContent = "¡Publicado con éxito!";
+      if (modalTitle) modalTitle.textContent = "¡Sincronizado con la nube!";
       if (modalBody) {
         modalBody.innerHTML = `
           <div style="padding: 10px 0; text-align: center;">
-            <div style="font-size: 3rem; margin-bottom: 15px;">🚀</div>
+            <div style="font-size: 3rem; margin-bottom: 15px;">☁️🚀</div>
             <p style="font-size: 1.1rem; font-weight: 600; color: #0d9488; margin-bottom: 12px;">
-              ¡Tu catálogo se ha actualizado en vivo!
+              ¡Tus cambios se guardaron exitosamente en GitHub!
             </p>
-            <p>Se compilaron los archivos y se actualizaron de forma automática en tu servidor de producción.</p>
+            <p>${result.message || "Vercel está compilando los cambios automáticamente. Pueden tardar 1-2 minutos en reflejarse."}</p>
             <p style="margin: 24px 0 16px;">
               <a href="${result.url}" target="_blank" rel="noopener" class="btn btn--primary" style="display: inline-flex; width: auto; padding: 12px 24px; border-radius: 8px; text-decoration: none; font-weight: 600; background: #2563eb; color: #ffffff;">
                 Visitar Tienda en Producción
               </a>
             </p>
             <p class="hint">URL principal: <code>${result.url}</code></p>
-            <p class="hint" style="margin-top: 8px; font-size: 0.8rem; color: #8e8e93;">No requieres copiar ningún archivo localmente.</p>
+            <p class="hint" style="margin-top: 8px; font-size: 0.8rem; color: #8e8e93;">Todo sincronizado. No requieres copiar ningún archivo localmente ni usar git.</p>
           </div>
         `;
       }
