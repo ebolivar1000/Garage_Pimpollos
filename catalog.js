@@ -244,14 +244,14 @@ window.GARAGE_CATALOG_FILE = {
       "categoryId": "cat-mqlb3jz3-hxtmr",
       "title": "Reloj Samsung Galaxy Watch 4 De 44 Mm Negro",
       "condition": "Usado",
-      "priceUsd": 90,
-      "priceMlUsd": 110,
-      "note": "Color: Negro\nTamaño de caja: 44 mm\nPantalla: 1.4\" Super AMOLED\nResolución: 450 × 450 píxeles\nProtección: Corning Gorilla Glass DX+\nSistema operativo: Wear OS Powered by Samsung\nInterfaz: One UI Watch\nProcesador: Exynos W920 Dual-Core 1.18 GHz (5 nm)\nMemoria RAM: 1.5 GB\nAlmacenamiento interno: 16 GB\nBatería: 361 mAh\nAutonomía: Hasta 40 horas (según el uso)\nCarga: Inalámbrica (WPC/Qi)\nBluetooth: 5.0\nWi-Fi: 802.11 a/b/g/n (2.4 y 5 GHz)\nNFC: Sí\nGPS: Sí (GPS, GLONASS, Galileo y BeiDou)\nResistencia al agua: 5 ATM + IP68\nCertificación militar: MIL-STD-810G\nMaterial de la caja: Armor Aluminum (aluminio)\nDimensiones: 44.4 × 43.3 × 9.8 mm\nPeso: 30.3 g\nCorrea: 20 mm intercambiable   \nAltavoz: Sí\nMicrófono: Sí\nSensores:\nFrecuencia cardíaca\nElectrocardiograma (ECG)\nOxígeno en sangre (SpO₂)\nComposición corporal (BIA)\nAcelerómetro\nGiroscopio\nBarómetro\nSensor geomagnético\nSensor de luz ambiental\nFunciones:\nMonitoreo del sueño\nConteo de pasos\nRegistro de actividad física\nMás de 90 modos de entrenamiento\nNotificaciones de llamadas y mensajes\nControl de música\nPagos con NFC (según disponibilidad)\nCompatible con Google Play, Google Maps y otras apps de Wear OS\nCompatibilidad: Smartphones Android (Android 6.0 o superior con al menos 1.5 GB de RAM)",
       "images": [
         "images/reloj.jpg",
         "images/reloj2.jpg"
       ],
       "image": "images/reloj.jpg",
+      "priceUsd": 90,
+      "priceMlUsd": 110,
+      "note": "Color: Negro\nTamaño de caja: 44 mm\nPantalla: 1.4\" Super AMOLED\nResolución: 450 × 450 píxeles\nProtección: Corning Gorilla Glass DX+\nSistema operativo: Wear OS Powered by Samsung\nInterfaz: One UI Watch\nProcesador: Exynos W920 Dual-Core 1.18 GHz (5 nm)\nMemoria RAM: 1.5 GB\nAlmacenamiento interno: 16 GB\nBatería: 361 mAh\nAutonomía: Hasta 40 horas (según el uso)\nCarga: Inalámbrica (WPC/Qi)\nBluetooth: 5.0\nWi-Fi: 802.11 a/b/g/n (2.4 y 5 GHz)\nNFC: Sí\nGPS: Sí (GPS, GLONASS, Galileo y BeiDou)\nResistencia al agua: 5 ATM + IP68\nCertificación militar: MIL-STD-810G\nMaterial de la caja: Armor Aluminum (aluminio)\nDimensiones: 44.4 × 43.3 × 9.8 mm\nPeso: 30.3 g\nCorrea: 20 mm intercambiable   \nAltavoz: Sí\nMicrófono: Sí\nSensores:\nFrecuencia cardíaca\nElectrocardiograma (ECG)\nOxígeno en sangre (SpO₂)\nComposición corporal (BIA)\nAcelerómetro\nGiroscopio\nBarómetro\nSensor geomagnético\nSensor de luz ambiental\nFunciones:\nMonitoreo del sueño\nConteo de pasos\nRegistro de actividad física\nMás de 90 modos de entrenamiento\nNotificaciones de llamadas y mensajes\nControl de música\nPagos con NFC (según disponibilidad)\nCompatible con Google Play, Google Maps y otras apps de Wear OS\nCompatibilidad: Smartphones Android (Android 6.0 o superior con al menos 1.5 GB de RAM)",
       "properties": {
         "Estado": "Excelente",
         "Adicionales": "En las notas"
@@ -310,15 +310,15 @@ window.GARAGE_CATALOG_FILE = {
       "categoryId": "cat-mqlb3jz3-hxtmr",
       "title": "CAMARA DJI Osmo  Action 1",
       "condition": "Usado",
-      "priceUsd": 120,
-      "priceMlUsd": 150,
-      "note": "",
       "images": [
         "images/osmo.jpg",
         "images/osmo2.jpg",
         "images/osmo3.jpg"
       ],
       "image": "images/osmo.jpg",
+      "priceUsd": 120,
+      "priceMlUsd": 150,
+      "note": "",
       "properties": {
         "Estado": "Usado",
         "Adicionales": "La DJI Osmo Action 1 es una cámara de acción ultrarresistente. Cuenta con doble pantalla (frontal a color para vlogs), estabilización electrónica RockSteady, grabación de video 4K a 60 fps y es sumergible hasta 11 metros sin necesidad de carcasa.Especificaciones Técnicas PrincipalesSensor y Lente: Sensor CMOS de 1/2.3\", apertura f/2.8 y un gran angular de 145°.Calidad de Video: 4K (60 fps), 2.7K (60 fps), 1080p (hasta 240 fps para cámara lenta) y HDR.Fotografía: 12 megapíxeles (formatos RAW o JPEG).Pantallas: Trasera táctil de 2.25 pulgadas y frontal a color de 1.4 pulgadas.Estabilización: Tecnología RockSteady que elimina vibraciones mecánicas.Batería: Capacidad de 1.300 mAh, con una autonomía de hasta 135 minutos a 1080p.Almacenamiento: Tarjetas microSD de hasta 256 GB"
@@ -329,8 +329,8 @@ window.GARAGE_CATALOG_FILE = {
       "categoryId": "cat-mq8p7gwk-qdjjq",
       "title": "Laptop - Modelo del sistema HP ProBook 440 G6",
       "condition": "Usado",
-      "priceUsd": 300,
-      "priceMlUsd": 400,
+      "priceUsd": 350,
+      "priceMlUsd": 650,
       "note": "",
       "images": [
         "images/hp.jpg",
@@ -342,7 +342,7 @@ window.GARAGE_CATALOG_FILE = {
         "Estado": "Excelente",
         "RAM": "8GB",
         "Procesador": "Intel Core i5  @ 1.60GHz, 1800 Mhz, 4 procesadores principales, 8 procesadores lógicos",
-        "Tamaño": "14,5\"",
+        "Tamaño": "14,5",
         "Nucleos": "8",
         "Marca": "HP",
         "Adicionales": "Con su cargador"
@@ -353,15 +353,15 @@ window.GARAGE_CATALOG_FILE = {
       "categoryId": "cat-mq8p7gwk-qdjjq",
       "title": "Hp Elitebook 640 G11 Ultra 5 (PARA REPARAR)",
       "condition": "Usado",
-      "priceUsd": 160,
-      "priceMlUsd": 2000,
-      "note": "!Hay que revisar la placa base!",
       "images": [
         "images/hp_reparar.jpg",
         "images/hp_reparar2.jpg",
         "images/hp_reparar3.jpg"
       ],
       "image": "images/hp_reparar.jpg",
+      "priceUsd": 160,
+      "priceMlUsd": 2000,
+      "note": "!Hay que revisar la placa base!",
       "properties": {
         "Estado": "A reparar",
         "RAM": "16GB",
@@ -373,5 +373,5 @@ window.GARAGE_CATALOG_FILE = {
       }
     }
   ],
-  "publishedAt": "2026-07-09T20:34:30.878Z"
+  "publishedAt": "2026-07-14T23:41:44.044Z"
 };
