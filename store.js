@@ -96,6 +96,8 @@ function migrateProduct(product, fallbackCategoryId) {
     priceMlUsd: Number(product.priceMlUsd ?? product.priceML ?? product.priceMl ?? 0),
     note: product.note || "",
     properties: product.properties && typeof product.properties === "object" ? product.properties : {},
+    publishedAt: product.publishedAt || new Date().toISOString(),
+    isSold: !!product.isSold,
   };
 }
 

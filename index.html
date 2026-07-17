@@ -50,7 +50,18 @@
         <p class="section__subtitle">Filtra por categoría. Cotización de referencia abajo.</p>
         <p class="fx-note" id="fx-rate-display"></p>
       </div>
-      <div class="category-filters" id="category-filters"></div>
+      <div class="catalog-controls" style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 16px; margin-bottom: 24px;">
+        <div class="category-filters" id="category-filters" style="margin-bottom: 0;"></div>
+        <div class="sort-control" style="display: flex; align-items: center; gap: 8px;">
+          <span style="font-size: 0.875rem; font-weight: 500; color: var(--text-muted); white-space: nowrap;">Ordenar por:</span>
+          <select id="sort-select" style="font: inherit; font-size: 0.875rem; font-weight: 500; padding: 8px 16px; border-radius: 999px; border: 1px solid var(--stroke); background: rgba(255, 255, 255, 0.6); color: var(--text-muted); cursor: pointer; outline: none; transition: background 0.2s, border-color 0.2s;">
+            <option value="date-desc">Fecha: Más reciente</option>
+            <option value="date-asc">Fecha: Más antiguo</option>
+            <option value="price-asc">Precio: Menor a Mayor</option>
+            <option value="price-desc">Precio: Mayor a Menor</option>
+          </select>
+        </div>
+      </div>
       <div class="grid" id="product-grid"></div>
       <p class="store-error" id="store-error" hidden></p>
     </section>

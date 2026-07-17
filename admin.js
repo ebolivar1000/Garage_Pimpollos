@@ -307,7 +307,11 @@ function renderProductsTable() {
       const ars = S.usdToArs(p.priceUsd, rate);
       return `
         <tr>
-          <td><strong>${S.escapeHtml(p.title)}</strong><br><small>${S.escapeHtml(p.condition)}</small></td>
+          <td>
+            <strong>${S.escapeHtml(p.title)}</strong>
+            ${p.isSold ? ' <span style="background: #ef4444; color: #fff; font-size: 0.7rem; padding: 2px 6px; border-radius: 4px; font-weight: bold; vertical-align: middle; margin-left: 4px;">VENDIDO</span>' : ''}
+            <br><small>${S.escapeHtml(p.condition)}</small>
+          </td>
           <td>${cat ? S.escapeHtml(cat.name) : "—"}</td>
           <td>${S.formatUsd(p.priceUsd)}</td>
           <td>${S.formatArs(ars)}</td>
@@ -607,6 +611,9 @@ function collectProperties() {
 function buildProductPayloadFromForm() {
   const id = document.getElementById("product-id").value || S.uid("prod");
   const images = collectModalImages();
+  const existing = catalog.products.find((p) => p.id === id);
+  const publishedAt = existing?.publishedAt || new Date().toISOString();
+  const isSold = document.getElementById("product-is-sold").checked;
   return {
     id,
     categoryId: document.getElementById("product-category").value,
@@ -618,6 +625,8 @@ function buildProductPayloadFromForm() {
     images: images.length ? images : [S.IMAGE_FALLBACK],
     image: images[0] || S.IMAGE_FALLBACK,
     properties: collectProperties(),
+    publishedAt,
+    isSold,
   };
 }
 
@@ -674,6 +683,7 @@ function openProductModal(productId = null) {
   document.getElementById("product-price-usd").value = product?.priceUsd ?? "";
   document.getElementById("product-price-ml").value = product?.priceMlUsd ?? "";
   document.getElementById("product-note").value = product?.note || "";
+  document.getElementById("product-is-sold").checked = !!product?.isSold;
   document.getElementById("product-image-file").value = "";
   showProductFormErrors([]);
 

@@ -160,11 +160,12 @@
     const waUsdUrl = buildWhatsAppUrl(catalog.settings.whatsappPhone, waUsdMsg);
 
     return `
-    <article class="card" data-product-id="${product.id}" data-category-id="${product.categoryId}">
+    <article class="card ${product.isSold ? 'is-sold' : ''}" data-product-id="${product.id}" data-category-id="${product.categoryId}">
       <div class="card__media">
         ${renderCarousel(product)}
         <span class="card__badge">${escapeHtml(product.condition)}</span>
         ${category ? `<span class="card__category">${escapeHtml(category.name)}</span>` : ""}
+        ${product.isSold ? `<div class="card__sold-ribbon">VENDIDO</div>` : ""}
       </div>
       <div class="card__body">
         <h3 class="card__title">${escapeHtml(product.title)}</h3>
@@ -192,11 +193,14 @@
         ${renderSpecs(product.properties)}
         ${product.note ? `<p class="card__note">${escapeHtml(product.note)}</p>` : ""}
         <div class="card__actions">
-          <button type="button" class="btn btn--buy" data-buy-product="${product.id}">Comprar / Pagar con Mercado Pago</button>
-          <a class="usd-note" href="${waUsdUrl}" target="_blank" rel="noopener noreferrer">
-            💵 Pagando en USD tenés un ${usdDiscountPct}% de descuento (${formatUsd(priceUsdDiscount).replace('USD','').trim()} USD) · <strong>Consultanos por WhatsApp</strong>
-          </a>
-          <a class="btn btn--whatsapp btn--secondary" href="${waUrl}" target="_blank" rel="noopener noreferrer">Consultar por WhatsApp</a>
+          ${product.isSold 
+            ? `<button type="button" class="btn btn--buy" style="background: #9ca3af; color: #fff; cursor: not-allowed; opacity: 0.8;" disabled>VENDIDO</button>`
+            : `<button type="button" class="btn btn--buy" data-buy-product="${product.id}">Comprar / Pagar con Mercado Pago</button>
+               <a class="usd-note" href="${waUsdUrl}" target="_blank" rel="noopener noreferrer">
+                 💵 Pagando en USD tenés un ${usdDiscountPct}% de descuento (${formatUsd(priceUsdDiscount).replace('USD','').trim()} USD) · <strong>Consultanos por WhatsApp</strong>
+               </a>
+               <a class="btn btn--whatsapp btn--secondary" href="${waUrl}" target="_blank" rel="noopener noreferrer">Consultar por WhatsApp</a>`
+          }
         </div>
       </div>
     </article>`;
@@ -234,6 +238,27 @@
     if (activeCategory !== "all") {
       products = products.filter((p) => p.categoryId === activeCategory);
     }
+
+    const sortSelect = document.getElementById("sort-select");
+    const sortBy = sortSelect ? sortSelect.value : "date-desc";
+
+    products.sort((a, b) => {
+      // Sold items always go last
+      if (a.isSold && !b.isSold) return 1;
+      if (!a.isSold && b.isSold) return -1;
+
+      // Regular sort criteria
+      if (sortBy === "date-desc") {
+        return new Date(b.publishedAt || 0) - new Date(a.publishedAt || 0);
+      } else if (sortBy === "date-asc") {
+        return new Date(a.publishedAt || 0) - new Date(b.publishedAt || 0);
+      } else if (sortBy === "price-asc") {
+        return a.priceUsd - b.priceUsd;
+      } else if (sortBy === "price-desc") {
+        return b.priceUsd - a.priceUsd;
+      }
+      return 0;
+    });
 
     if (!products.length) {
       grid.innerHTML = `<p class="empty-state">No hay productos publicados todavía. Publicá desde gestion.html.</p>`;
@@ -445,6 +470,12 @@
   async function init() {
     initTopBanner();
     initPaymentModal();
+    const sortSelect = document.getElementById("sort-select");
+    if (sortSelect) {
+      sortSelect.addEventListener("change", () => {
+        renderProducts();
+      });
+    }
     await refreshStore();
     document.getElementById("year").textContent = String(new Date().getFullYear());
   }
