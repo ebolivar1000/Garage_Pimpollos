@@ -119,6 +119,15 @@ window.GARAGE_CATALOG_FILE = {
         "Estado",
         "Adicionales"
       ]
+    },
+    {
+      "id": "cat-ms1r15x0-i85ed",
+      "name": "De la casa",
+      "order": 8,
+      "propertyFields": [
+        "Estado",
+        "Adicionales"
+      ]
     }
   ],
   "products": [
@@ -413,5 +422,5 @@ window.GARAGE_CATALOG_FILE = {
       "isSold": false
     }
   ],
-  "publishedAt": "2026-07-26T12:01:50.956Z"
+  "publishedAt": "2026-07-26T12:03:33.282Z"
 };
