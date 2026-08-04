@@ -279,15 +279,15 @@ window.GARAGE_CATALOG_FILE = {
       "categoryId": "cat-celulares",
       "title": "Samsung S23 Ultra",
       "condition": "Usado",
+      "priceUsd": 500,
+      "priceMlUsd": 600,
+      "note": "Tiene un detalle en la parte inferior izquierda de pantalla, pero funciona perfectamente.",
       "images": [
         "https://raw.githubusercontent.com/ebolivar1000/Garage_Pimpollos/main/images/s23.png",
         "https://raw.githubusercontent.com/ebolivar1000/Garage_Pimpollos/main/images/s23_2.png",
         "https://raw.githubusercontent.com/ebolivar1000/Garage_Pimpollos/main/images/s23_3.png"
       ],
       "image": "https://raw.githubusercontent.com/ebolivar1000/Garage_Pimpollos/main/images/s23.png",
-      "priceUsd": 500,
-      "priceMlUsd": 600,
-      "note": "Tiene un detalle en la parte inferior izquierda de pantalla, pero funciona perfectamente.",
       "properties": {
         "Pantalla": "AMOLED de 6.8",
         "RAM": "12 GB",
@@ -298,24 +298,24 @@ window.GARAGE_CATALOG_FILE = {
         "Adicionales": "Procesador Snapdragon 8 Gen 2 Octa-Core de 3.36GHz con 12GB de RAM. Resistente al agua. Con reconocimiento facial y sensor de huella dactilar. Tiene 4 cámaras traseras de 200Mpx/10Mpx/12Mpx/10Mpx."
       },
       "publishedAt": "2026-07-17T16:59:18.349Z",
-      "isSold": false
+      "isSold": true
     },
     {
       "id": "prod-mrb6bp9x-cety5",
       "categoryId": "cat-celulares",
       "title": "Samsung S21 FE",
       "condition": "Usado",
+      "priceUsd": 360,
+      "priceMlUsd": 400,
+      "note": "Procesador Exynos 2100 Octa-Core de 2.9GHz con 6GB de RAM.",
       "images": [
         "https://raw.githubusercontent.com/ebolivar1000/Garage_Pimpollos/main/images/s21.jpg",
         "https://raw.githubusercontent.com/ebolivar1000/Garage_Pimpollos/main/images/s21_2.jpg",
         "https://raw.githubusercontent.com/ebolivar1000/Garage_Pimpollos/main/images/s21_3.png"
       ],
       "image": "https://raw.githubusercontent.com/ebolivar1000/Garage_Pimpollos/main/images/s21.jpg",
-      "priceUsd": 360,
-      "priceMlUsd": 400,
-      "note": "Procesador Exynos 2100 Octa-Core de 2.9GHz con 6GB de RAM.",
       "properties": {
-        "Pantalla": "AMOLED de 6.4\"",
+        "Pantalla": "AMOLED de 6.4",
         "RAM": "6gb",
         "Almacenamiento": "128 gb",
         "Batería": "4500 mAh",
@@ -324,7 +324,7 @@ window.GARAGE_CATALOG_FILE = {
         "Adicionales": "Resistente al agua. Con reconocimiento facial y sensor de huella dactilar. Resistente al polvo y a las caídas."
       },
       "publishedAt": "2026-07-17T16:59:18.349Z",
-      "isSold": false
+      "isSold": true
     },
     {
       "id": "prod-mrdxx1ut-mbc78",
@@ -464,5 +464,5 @@ window.GARAGE_CATALOG_FILE = {
       "isSold": false
     }
   ],
-  "publishedAt": "2026-08-04T18:37:12.950Z"
+  "publishedAt": "2026-08-04T18:43:44.925Z"
 };
