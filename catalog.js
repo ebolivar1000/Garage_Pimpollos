@@ -424,7 +424,7 @@ window.GARAGE_CATALOG_FILE = {
     {
       "id": "prod-msezrhoo-6gplq",
       "categoryId": "cat-mqlb3jz3-hxtmr",
-      "title": "SmartWatch Samsung 5 de 44mm",
+      "title": "SmartWatch Samsung 5 de 44mm (INCLUYE JUEGO DE CORREAS DE VARIOS COLORES)",
       "condition": "Usado",
       "priceUsd": 170,
       "priceMlUsd": 210,
@@ -464,5 +464,5 @@ window.GARAGE_CATALOG_FILE = {
       "isSold": false
     }
   ],
-  "publishedAt": "2026-08-04T18:35:19.411Z"
+  "publishedAt": "2026-08-04T18:36:41.722Z"
 };
