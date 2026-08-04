@@ -420,7 +420,49 @@ window.GARAGE_CATALOG_FILE = {
       },
       "publishedAt": "2026-07-17T17:22:38.004Z",
       "isSold": false
+    },
+    {
+      "id": "prod-msezrhoo-6gplq",
+      "categoryId": "cat-mqlb3jz3-hxtmr",
+      "title": "SmartWatch Samsung 5 de 44mm",
+      "condition": "Usado",
+      "priceUsd": 170,
+      "priceMlUsd": 210,
+      "note": "Pantalla y Diseño\nPantalla táctil Super AMOLED de 1,4 pulgadas con resolución de 450 x 450 píxeles.Caja de aluminio de 44 mm protegida con cristal de zafiro.Colores habituales: Grafito, Zafiro y Plata.\n\nRendimiento y Memoria\nProcesador Exynos W920 Dual-Core de 1,18 GHz.Memoria RAM de 1,5 GB y almacenamiento interno de 16 GB.Sistema operativo WearOS 3.5 con la capa One UI Watch.\n\nBatería y Conectividad\nBatería de 410 mAh con soporte para carga rápida.\nConectividad Bluetooth 5.2, Wi-Fi de doble banda, NFC y GPS integrado.Compatible con teléfonos Android 8.0 o superior.Sensores y SaludSensor Samsung BioActive para frecuencia cardíaca, electrocardiograma (ECG) y análisis de impedancia bioeléctrica (BIA para masa corporal).Sensor de temperatura infrarrojo y seguimiento avanzado del sueño.Resistencia al agua IP68 y certificación militar de durabilidad.",
+      "images": [
+        "images/correas_watch_5.png",
+        "images/watch_5.jpg",
+        "images/watch_5_2.jpg"
+      ],
+      "image": "images/correas_watch_5.png",
+      "properties": {
+        "Estado": "Usado",
+        "Adicionales": "(RECUERDA QUE PUEDE SER EN CUOTAS)"
+      },
+      "publishedAt": "2026-08-04T18:28:31.176Z",
+      "isSold": false
+    },
+    {
+      "id": "prod-msezyizn-0u98w",
+      "categoryId": "cat-mqlb3jz3-hxtmr",
+      "title": "Audífonos Logitech H390",
+      "condition": "Usado",
+      "priceUsd": 30,
+      "priceMlUsd": 50,
+      "note": "Características Principales\nAudio: Sonido estéreo digital optimizado con transductores de 30 mm para llamadas claras.\nMicrófono: Varilla giratoria con cancelación de ruido que reduce el sonido de fondo.\nConectividad: USB tipo A con función Plug-and-Play, sin necesidad de instalar programas.\nComodidad: Diadema acolchada ajustable y almohadillas de cuero sintético para uso prolongado.\nControles: Botones en el cable para subir/bajar volumen y silenciar el micrófono.",
+      "images": [
+        "images/LOGITECH_H390.jpg",
+        "images/LOGITECH_H390_2.jpg",
+        "images/LOGITECH_H390_3.jpg"
+      ],
+      "image": "images/LOGITECH_H390.jpg",
+      "properties": {
+        "Estado": "Usado",
+        "Adicionales": "En su caja original"
+      },
+      "publishedAt": "2026-08-04T18:33:59.459Z",
+      "isSold": false
     }
   ],
-  "publishedAt": "2026-07-26T12:03:33.282Z"
+  "publishedAt": "2026-08-04T18:34:19.504Z"
 };
