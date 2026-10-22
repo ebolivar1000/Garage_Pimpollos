@@ -259,35 +259,35 @@
       "categoryId": "cat-mqlb3jz3-hxtmr",
       "title": "Reloj Samsung Galaxy Watch 4 De 44 Mm Negro",
       "condition": "Usado",
+      "priceUsd": 90,
+      "priceMlUsd": 110,
+      "note": "Color: Negro\nTamaño de caja: 44 mm\nPantalla: 1.4\" Super AMOLED\nResolución: 450 × 450 píxeles\nProtección: Corning Gorilla Glass DX+\nSistema operativo: Wear OS Powered by Samsung\nInterfaz: One UI Watch\nProcesador: Exynos W920 Dual-Core 1.18 GHz (5 nm)\nMemoria RAM: 1.5 GB\nAlmacenamiento interno: 16 GB\nBatería: 361 mAh\nAutonomía: Hasta 40 horas (según el uso)\nCarga: Inalámbrica (WPC/Qi)\nBluetooth: 5.0\nWi-Fi: 802.11 a/b/g/n (2.4 y 5 GHz)\nNFC: Sí\nGPS: Sí (GPS, GLONASS, Galileo y BeiDou)\nResistencia al agua: 5 ATM + IP68\nCertificación militar: MIL-STD-810G\nMaterial de la caja: Armor Aluminum (aluminio)\nDimensiones: 44.4 × 43.3 × 9.8 mm\nPeso: 30.3 g\nCorrea: 20 mm intercambiable   \nAltavoz: Sí\nMicrófono: Sí\nSensores:\nFrecuencia cardíaca\nElectrocardiograma (ECG)\nOxígeno en sangre (SpO₂)\nComposición corporal (BIA)\nAcelerómetro\nGiroscopio\nBarómetro\nSensor geomagnético\nSensor de luz ambiental\nFunciones:\nMonitoreo del sueño\nConteo de pasos\nRegistro de actividad física\nMás de 90 modos de entrenamiento\nNotificaciones de llamadas y mensajes\nControl de música\nPagos con NFC (según disponibilidad)\nCompatible con Google Play, Google Maps y otras apps de Wear OS\nCompatibilidad: Smartphones Android (Android 6.0 o superior con al menos 1.5 GB de RAM)",
       "images": [
         "images/reloj.jpg",
         "images/reloj2.jpg"
       ],
       "image": "images/reloj.jpg",
-      "priceUsd": 90,
-      "priceMlUsd": 110,
-      "note": "Color: Negro\nTamaño de caja: 44 mm\nPantalla: 1.4\" Super AMOLED\nResolución: 450 × 450 píxeles\nProtección: Corning Gorilla Glass DX+\nSistema operativo: Wear OS Powered by Samsung\nInterfaz: One UI Watch\nProcesador: Exynos W920 Dual-Core 1.18 GHz (5 nm)\nMemoria RAM: 1.5 GB\nAlmacenamiento interno: 16 GB\nBatería: 361 mAh\nAutonomía: Hasta 40 horas (según el uso)\nCarga: Inalámbrica (WPC/Qi)\nBluetooth: 5.0\nWi-Fi: 802.11 a/b/g/n (2.4 y 5 GHz)\nNFC: Sí\nGPS: Sí (GPS, GLONASS, Galileo y BeiDou)\nResistencia al agua: 5 ATM + IP68\nCertificación militar: MIL-STD-810G\nMaterial de la caja: Armor Aluminum (aluminio)\nDimensiones: 44.4 × 43.3 × 9.8 mm\nPeso: 30.3 g\nCorrea: 20 mm intercambiable   \nAltavoz: Sí\nMicrófono: Sí\nSensores:\nFrecuencia cardíaca\nElectrocardiograma (ECG)\nOxígeno en sangre (SpO₂)\nComposición corporal (BIA)\nAcelerómetro\nGiroscopio\nBarómetro\nSensor geomagnético\nSensor de luz ambiental\nFunciones:\nMonitoreo del sueño\nConteo de pasos\nRegistro de actividad física\nMás de 90 modos de entrenamiento\nNotificaciones de llamadas y mensajes\nControl de música\nPagos con NFC (según disponibilidad)\nCompatible con Google Play, Google Maps y otras apps de Wear OS\nCompatibilidad: Smartphones Android (Android 6.0 o superior con al menos 1.5 GB de RAM)",
       "properties": {
         "Estado": "Excelente",
         "Adicionales": "En las notas"
       },
       "publishedAt": "2026-07-17T16:59:18.349Z",
-      "isSold": false
+      "isSold": true
     },
     {
       "id": "prod-mrb5pbov-3brsb",
       "categoryId": "cat-celulares",
       "title": "Samsung S23 Ultra",
       "condition": "Usado",
-      "priceUsd": 500,
-      "priceMlUsd": 600,
-      "note": "Tiene un detalle en la parte inferior izquierda de pantalla, pero funciona perfectamente.",
       "images": [
         "https://raw.githubusercontent.com/ebolivar1000/Garage_Pimpollos/main/images/s23.png",
         "https://raw.githubusercontent.com/ebolivar1000/Garage_Pimpollos/main/images/s23_2.png",
         "https://raw.githubusercontent.com/ebolivar1000/Garage_Pimpollos/main/images/s23_3.png"
       ],
       "image": "https://raw.githubusercontent.com/ebolivar1000/Garage_Pimpollos/main/images/s23.png",
+      "priceUsd": 500,
+      "priceMlUsd": 600,
+      "note": "Tiene un detalle en la parte inferior izquierda de pantalla, pero funciona perfectamente.",
       "properties": {
         "Pantalla": "AMOLED de 6.8",
         "RAM": "12 GB",
@@ -305,15 +305,15 @@
       "categoryId": "cat-celulares",
       "title": "Samsung S21 FE",
       "condition": "Usado",
-      "priceUsd": 360,
-      "priceMlUsd": 400,
-      "note": "Procesador Exynos 2100 Octa-Core de 2.9GHz con 6GB de RAM.",
       "images": [
         "https://raw.githubusercontent.com/ebolivar1000/Garage_Pimpollos/main/images/s21.jpg",
         "https://raw.githubusercontent.com/ebolivar1000/Garage_Pimpollos/main/images/s21_2.jpg",
         "https://raw.githubusercontent.com/ebolivar1000/Garage_Pimpollos/main/images/s21_3.png"
       ],
       "image": "https://raw.githubusercontent.com/ebolivar1000/Garage_Pimpollos/main/images/s21.jpg",
+      "priceUsd": 360,
+      "priceMlUsd": 400,
+      "note": "Procesador Exynos 2100 Octa-Core de 2.9GHz con 6GB de RAM.",
       "properties": {
         "Pantalla": "AMOLED de 6.4",
         "RAM": "6gb",
@@ -440,22 +440,22 @@
         "Adicionales": "(RECUERDA QUE PUEDE SER EN CUOTAS)"
       },
       "publishedAt": "2026-08-04T18:28:31.176Z",
-      "isSold": false
+      "isSold": true
     },
     {
       "id": "prod-msezyizn-0u98w",
       "categoryId": "cat-mqlb3jz3-hxtmr",
       "title": "Audífonos Logitech H390",
       "condition": "Usado",
-      "priceUsd": 30,
-      "priceMlUsd": 50,
-      "note": "Características Principales\nAudio: Sonido estéreo digital optimizado con transductores de 30 mm para llamadas claras.\nMicrófono: Varilla giratoria con cancelación de ruido que reduce el sonido de fondo.\nConectividad: USB tipo A con función Plug-and-Play, sin necesidad de instalar programas.\nComodidad: Diadema acolchada ajustable y almohadillas de cuero sintético para uso prolongado.\nControles: Botones en el cable para subir/bajar volumen y silenciar el micrófono.",
       "images": [
         "images/LOGITECH_H390.jpg",
         "images/LOGITECH_H390_2.jpg",
         "images/LOGITECH_H390_3.jpg"
       ],
       "image": "images/LOGITECH_H390.jpg",
+      "priceUsd": 30,
+      "priceMlUsd": 50,
+      "note": "Características Principales\nAudio: Sonido estéreo digital optimizado con transductores de 30 mm para llamadas claras.\nMicrófono: Varilla giratoria con cancelación de ruido que reduce el sonido de fondo.\nConectividad: USB tipo A con función Plug-and-Play, sin necesidad de instalar programas.\nComodidad: Diadema acolchada ajustable y almohadillas de cuero sintético para uso prolongado.\nControles: Botones en el cable para subir/bajar volumen y silenciar el micrófono.",
       "properties": {
         "Estado": "Usado",
         "Adicionales": "En su caja original"
@@ -464,5 +464,5 @@
       "isSold": false
     }
   ],
-  "publishedAt": "2026-08-04T18:43:44.925Z"
+  "publishedAt": "2026-10-22T14:39:18.509Z"
 }
