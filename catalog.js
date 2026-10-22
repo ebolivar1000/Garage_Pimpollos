@@ -464,5 +464,5 @@ window.GARAGE_CATALOG_FILE = {
       "isSold": false
     }
   ],
-  "publishedAt": "2026-10-22T14:40:57.376Z"
+  "publishedAt": "2026-10-22T14:41:26.765Z"
 };
