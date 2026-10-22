@@ -331,18 +331,18 @@ window.GARAGE_CATALOG_FILE = {
       "categoryId": "cat-mqlb3jz3-hxtmr",
       "title": "CAMARA DJI Osmo  Action 1",
       "condition": "Usado",
+      "priceUsd": 100,
+      "priceMlUsd": 150,
+      "note": "",
       "images": [
         "images/osmo.jpg",
         "images/osmo2.jpg",
         "images/osmo3.jpg"
       ],
       "image": "images/osmo.jpg",
-      "priceUsd": 120,
-      "priceMlUsd": 150,
-      "note": "",
       "properties": {
         "Estado": "Usado",
-        "Adicionales": "La DJI Osmo Action 1 es una cámara de acción ultrarresistente. Cuenta con doble pantalla (frontal a color para vlogs), estabilización electrónica RockSteady, grabación de video 4K a 60 fps y es sumergible hasta 11 metros sin necesidad de carcasa.Especificaciones Técnicas PrincipalesSensor y Lente: Sensor CMOS de 1/2.3\", apertura f/2.8 y un gran angular de 145°.Calidad de Video: 4K (60 fps), 2.7K (60 fps), 1080p (hasta 240 fps para cámara lenta) y HDR.Fotografía: 12 megapíxeles (formatos RAW o JPEG).Pantallas: Trasera táctil de 2.25 pulgadas y frontal a color de 1.4 pulgadas.Estabilización: Tecnología RockSteady que elimina vibraciones mecánicas.Batería: Capacidad de 1.300 mAh, con una autonomía de hasta 135 minutos a 1080p.Almacenamiento: Tarjetas microSD de hasta 256 GB"
+        "Adicionales": "La DJI Osmo Action 1 es una cámara de acción ultrarresistente. Cuenta con doble pantalla (frontal a color para vlogs), estabilización electrónica RockSteady, grabación de video 4K a 60 fps y es sumergible hasta 11 metros sin necesidad de carcasa.Especificaciones Técnicas PrincipalesSensor y Lente: Sensor CMOS de 1/2.3"
       },
       "publishedAt": "2026-07-17T16:59:18.349Z",
       "isSold": false
@@ -464,5 +464,5 @@ window.GARAGE_CATALOG_FILE = {
       "isSold": false
     }
   ],
-  "publishedAt": "2026-10-22T14:39:18.509Z"
+  "publishedAt": "2026-10-22T14:40:57.376Z"
 };
