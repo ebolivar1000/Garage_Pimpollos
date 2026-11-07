@@ -489,7 +489,7 @@ function pickBestCatalog(candidates) {
 
 async function fetchCatalogFile() {
   try {
-    const res = await fetch(`catalog.json?t=${Date.now()}`, { cache: "no-store" });
+    const res = await fetch(`/catalog.json?t=${Date.now()}`, { cache: "no-store" });
     if (!res.ok) return null;
     return normalizeCatalog(await res.json());
   } catch {
