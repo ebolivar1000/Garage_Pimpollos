@@ -1,0 +1,6 @@
+{
+  "rewrites": [
+    { "source": "/p/:path*", "destination": "/index.html" },
+    { "source": "/producto/:path*", "destination": "/index.html" }
+  ]
+}
