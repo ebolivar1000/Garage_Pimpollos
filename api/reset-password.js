@@ -1,11 +1,11 @@
-const {
+import {
   ADMIN_RESET_EMAIL,
   createResetToken,
   buildResetUrl,
   sendResetEmail,
-} = require("../lib/password-reset");
+} from "../lib/password-reset.js";
 
-module.exports = async (req, res) => {
+export default async function handler(req, res) {
   res.setHeader("Access-Control-Allow-Origin", "*");
   res.setHeader("Access-Control-Allow-Methods", "POST, OPTIONS");
   res.setHeader("Access-Control-Allow-Headers", "Content-Type");
@@ -16,8 +16,7 @@ module.exports = async (req, res) => {
   }
 
   if (req.method !== "POST") {
-    res.status(405).json({ error: "Método no permitido." });
-    return;
+    return res.status(405).json({ error: "Método no permitido." });
   }
 
   try {
@@ -38,9 +37,9 @@ module.exports = async (req, res) => {
         resetUrl;
     }
 
-    res.status(200).json(response);
+    return res.status(200).json(response);
   } catch (err) {
     console.error("[reset-password]", err);
-    res.status(500).json({ error: err.message || "No se pudo procesar el restablecimiento." });
+    return res.status(500).json({ error: err.message || "No se pudo procesar el restablecimiento." });
   }
-};
+}

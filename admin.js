@@ -317,6 +317,7 @@ function renderProductsTable() {
           <td>${S.formatArs(ars)}</td>
           <td>
             <div class="row-actions">
+              <button type="button" class="btn btn--ghost btn--sm" data-copy-link="${p.id}" title="Copiar enlace para compartir">Copiar Link</button>
               <button type="button" class="btn btn--ghost btn--sm" data-edit-product="${p.id}">Editar</button>
               <button type="button" class="btn btn--ghost btn--sm btn--danger" data-delete-product="${p.id}">Borrar</button>
             </div>

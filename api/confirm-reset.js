@@ -1,6 +1,6 @@
-const { DEFAULT_ADMIN_PASSWORD, verifyResetToken } = require("../lib/password-reset");
+import { DEFAULT_ADMIN_PASSWORD, verifyResetToken } from "../lib/password-reset.js";
 
-module.exports = async (req, res) => {
+export default async function handler(req, res) {
   res.setHeader("Access-Control-Allow-Origin", "*");
   res.setHeader("Access-Control-Allow-Methods", "GET, OPTIONS");
   res.setHeader("Access-Control-Allow-Headers", "Content-Type");
@@ -11,18 +11,16 @@ module.exports = async (req, res) => {
   }
 
   if (req.method !== "GET") {
-    res.status(405).json({ error: "Método no permitido." });
-    return;
+    return res.status(405).json({ error: "Método no permitido." });
   }
 
   const token = req.query?.token;
   if (!verifyResetToken(token)) {
-    res.status(400).json({ error: "Enlace inválido o expirado." });
-    return;
+    return res.status(400).json({ error: "Enlace inválido o expirado." });
   }
 
-  res.status(200).json({
+  return res.status(200).json({
     success: true,
     password: DEFAULT_ADMIN_PASSWORD,
   });
-};
+}

@@ -1,0 +1,2 @@
+# Redirecciones y SPA Fallback para Cloudflare Pages
+/producto/*   /p/:splat   301

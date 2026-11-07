@@ -1152,3 +1152,86 @@ body {
   user-select: none;
 }
 
+
+/* Deep Linking & Compartir Producto */
+.card {
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1), outline 0.3s ease;
+}
+
+.card--highlighted {
+  outline: 3px solid #2563eb !important;
+  box-shadow: 0 0 0 6px rgba(37, 99, 235, 0.25), 0 20px 30px -8px rgba(0, 0, 0, 0.15) !important;
+  transform: translateY(-6px) scale(1.01) !important;
+  animation: pulseGlow 2.5s infinite alternate ease-in-out;
+}
+
+@keyframes pulseGlow {
+  0% {
+    box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.2), 0 16px 24px -6px rgba(0, 0, 0, 0.12);
+  }
+  100% {
+    box-shadow: 0 0 0 8px rgba(37, 99, 235, 0.35), 0 24px 36px -6px rgba(37, 99, 235, 0.25);
+  }
+}
+
+.btn--share {
+  background: rgba(255, 255, 255, 0.85);
+  color: var(--text);
+  border: 1px solid var(--stroke);
+  font-size: 0.875rem;
+  font-weight: 500;
+  padding: 10px 14px;
+  border-radius: 12px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  cursor: pointer;
+  transition: all 0.2s var(--ease-out);
+  margin-top: 4px;
+}
+
+.btn--share:hover {
+  background: #f8fafc;
+  border-color: #cbd5e1;
+  transform: scale(1.01);
+}
+
+.btn--share svg {
+  color: var(--text-soft);
+  transition: color 0.2s ease;
+}
+
+.btn--share:hover svg {
+  color: #2563eb;
+}
+
+/* Floating Toast Notification */
+.toast-notice {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  background: #0f172a;
+  color: #ffffff;
+  padding: 14px 22px;
+  border-radius: 12px;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.25), 0 8px 10px -6px rgba(0, 0, 0, 0.2);
+  font-size: 0.9375rem;
+  font-weight: 500;
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  animation: toastFadeIn 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes toastFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

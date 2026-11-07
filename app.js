@@ -201,6 +201,16 @@
                </a>
                <a class="btn btn--whatsapp btn--secondary" href="${waUrl}" target="_blank" rel="noopener noreferrer">Consultar por WhatsApp</a>`
           }
+          <button type="button" class="btn btn--share" data-share-product="${product.id}" title="Compartir este producto">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="18" cy="5" r="3"></circle>
+              <circle cx="6" cy="12" r="3"></circle>
+              <circle cx="18" cy="19" r="3"></circle>
+              <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line>
+              <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line>
+            </svg>
+            <span>Compartir producto</span>
+          </button>
         </div>
       </div>
     </article>`;
@@ -228,6 +238,104 @@
         renderProducts();
       });
     });
+  }
+
+  
+  function showToastNotice(text) {
+    const existing = document.querySelector(".toast-notice");
+    if (existing) existing.remove();
+    const toast = document.createElement("div");
+    toast.className = "toast-notice";
+    toast.innerHTML = `<span style="color:#10b981;font-weight:bold;">✓</span> <span>${escapeHtml(text)}</span>`;
+    document.body.appendChild(toast);
+    setTimeout(() => {
+      toast.style.opacity = "0";
+      toast.style.transition = "opacity 0.4s ease";
+      setTimeout(() => toast.remove(), 400);
+    }, 3200);
+  }
+
+  function initShareButtons(root = document) {
+    root.querySelectorAll("[data-share-product]").forEach((btn) => {
+      btn.addEventListener("click", async (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        const productId = btn.dataset.shareProduct;
+        const product = catalog.products.find((p) => p.id === productId);
+        if (!product) return;
+
+        const rate = catalog.settings.usdToArsRate;
+        const priceArs = usdToArs(product.priceUsd, rate);
+        const origin = window.location.origin.includes("localhost")
+          ? "https://lospimpollos.pages.dev"
+          : window.location.origin;
+        const shareUrl = `${origin}/p/${product.id}`;
+
+        const shareData = {
+          title: `${product.title} - ${formatUsd(product.priceUsd)} USD | El garage de los pimpollos`,
+          text: `Mirá esta publicación: ${product.title} (${formatArs(priceArs)} / ${formatUsd(product.priceUsd)} USD) en El garage de los pimpollos:`,
+          url: shareUrl,
+        };
+
+        if (navigator.share && navigator.canShare && navigator.canShare(shareData)) {
+          try {
+            await navigator.share(shareData);
+            return;
+          } catch (err) {
+            if (err.name === "AbortError") return;
+          }
+        }
+
+        try {
+          await navigator.clipboard.writeText(shareUrl);
+          showToastNotice("¡Enlace copiado al portapapeles! Listo para enviar por WhatsApp.");
+        } catch {
+          prompt("Copiá este enlace para compartir el producto:", shareUrl);
+        }
+      });
+    });
+  }
+
+  function checkDeepLink() {
+    let targetId = null;
+    const pathMatch = window.location.pathname.match(/\/p\/([a-zA-Z0-9_-]+)/);
+    if (pathMatch) {
+      targetId = pathMatch[1];
+    } else if (window.location.hash) {
+      targetId = window.location.hash.replace(/^#/, "");
+    } else {
+      const params = new URLSearchParams(window.location.search);
+      if (params.get("p")) {
+        targetId = params.get("p");
+      }
+    }
+
+    if (!targetId) return;
+
+    const product = catalog?.products?.find((p) => p.id === targetId);
+    if (!product) return;
+
+    if (activeCategory !== "all" && product.categoryId !== activeCategory) {
+      activeCategory = "all";
+      const container = document.getElementById("category-filters");
+      if (container) {
+        container.querySelectorAll(".filter-pill").forEach((b) => {
+          b.classList.toggle("is-active", b.dataset.category === "all");
+        });
+      }
+      renderProducts();
+    }
+
+    setTimeout(() => {
+      const card = document.querySelector(`[data-product-id="${targetId}"]`);
+      if (card) {
+        card.scrollIntoView({ behavior: "smooth", block: "center" });
+        card.classList.add("card--highlighted");
+        setTimeout(() => {
+          card.classList.remove("card--highlighted");
+        }, 6000);
+      }
+    }, 250);
   }
 
   function renderProducts() {
@@ -268,6 +376,7 @@
     grid.innerHTML = products.map(renderProductCard).join("");
     initCarousels(grid);
     initBuyButtons(grid);
+    initShareButtons(grid);
   }
 
   function applyBranding() {
@@ -477,6 +586,9 @@
       });
     }
     await refreshStore();
+    checkDeepLink();
+    window.addEventListener("hashchange", checkDeepLink);
+    window.addEventListener("popstate", checkDeepLink);
     document.getElementById("year").textContent = String(new Date().getFullYear());
   }
 

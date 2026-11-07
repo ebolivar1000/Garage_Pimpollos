@@ -1,17 +1,23 @@
-const http = require('http');
-const fs = require('fs');
-const path = require('path');
-const util = require('util');
-const { exec } = require('child_process');
-const execAsync = util.promisify(exec);
-const {
+import http from 'http';
+import fs from 'fs';
+import path from 'path';
+import util from 'util';
+import { exec } from 'child_process';
+import { fileURLToPath } from 'url';
+import { dirname } from 'path';
+import {
   ADMIN_RESET_EMAIL,
   DEFAULT_ADMIN_PASSWORD,
   createResetToken,
   verifyResetToken,
   buildResetUrl,
   sendResetEmail,
-} = require('./lib/password-reset');
+} from './lib/password-reset.js';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
+const execAsync = util.promisify(exec);
+
 
 async function hasGitRemote() {
   try {
@@ -175,7 +181,7 @@ const server = http.createServer((req, res) => {
 
   // Serve static files
   let urlPath = req.url.split('?')[0];
-  if (urlPath === '/') {
+  if (urlPath === '/' || urlPath.startsWith('/p/') || urlPath.startsWith('/producto/')) {
     urlPath = '/index.html';
   }
 
