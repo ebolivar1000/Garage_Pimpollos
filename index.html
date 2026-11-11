@@ -103,6 +103,78 @@
     <p>© <span id="year"></span> <span class="brand-name">El garage de los pimpollos</span></p>
   </footer>
 
+    <!-- Product details modal -->
+  <dialog class="modal modal--detail" id="product-detail-modal">
+    <div class="modal__inner modal__inner--detail">
+      <header class="modal__head">
+        <div class="detail-header-badges">
+          <span class="card__badge" id="detail-condition" style="position: static; margin-right: 6px;">Usado</span>
+          <span class="card__category" id="detail-category" style="display: inline-block;">General</span>
+        </div>
+        <button type="button" class="icon-btn" id="close-detail-modal" aria-label="Cerrar">×</button>
+      </header>
+      <div class="modal__body modal__body--detail">
+        <div class="detail__media-wrapper" id="detail-media-container"></div>
+        <div class="detail__info">
+          <h2 class="detail__title" id="detail-title">—</h2>
+          
+          <div class="prices" style="margin-bottom: 12px;">
+            <div class="price-row price-row--primary">
+              <span class="price-row__label">Precio en Pesos</span>
+              <div class="price-stack">
+                <span class="price-current price-current--ars" id="detail-price-ars">—</span>
+                <span class="price-secondary price-secondary--usd" id="detail-price-usd">—</span>
+              </div>
+            </div>
+            <div class="price-row" id="detail-ml-row">
+              <span class="price-row__label">Referencia Mercado Libre</span>
+              <div class="price-stack price-stack--ml">
+                <span class="price-ml">
+                  <span class="ml-pill">ML</span>
+                  <span id="detail-price-ml">—</span>
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <div class="savings" id="detail-savings" style="margin-bottom: 14px;" aria-label="Ahorro estimado">
+            Ahorro · <span id="detail-savings-amount">—</span> <span id="detail-savings-pct">(0%)</span>
+          </div>
+
+          <a class="usd-note" id="detail-usd-note" href="#" target="_blank" rel="noopener noreferrer" style="margin-bottom: 18px; display: block;">
+            💵 Pagando en USD tenés un 10% de descuento (<span id="detail-usd-discount">—</span>) · <strong>Consultanos por WhatsApp</strong>
+          </a>
+
+          <div class="detail__section" id="detail-specs-section">
+            <h4 class="detail__section-title">Características principales</h4>
+            <div id="detail-specs-content"></div>
+          </div>
+
+          <div class="detail__section" id="detail-note-section">
+            <h4 class="detail__section-title">Detalles y estado</h4>
+            <p class="detail__note" id="detail-note-content"></p>
+          </div>
+        </div>
+      </div>
+      <footer class="modal__foot detail-foot">
+        <div class="detail-actions" id="detail-modal-actions" style="width: 100%; display: flex; flex-direction: column; gap: 8px;">
+          <button type="button" class="btn btn--buy" id="detail-btn-buy">Comprar / Pagar con Mercado Pago</button>
+          <a class="btn btn--whatsapp" id="detail-btn-wa" href="#" target="_blank" rel="noopener noreferrer">Consultar por WhatsApp</a>
+          <button type="button" class="btn btn--share" id="detail-btn-share">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="18" cy="5" r="3"></circle>
+              <circle cx="6" cy="12" r="3"></circle>
+              <circle cx="18" cy="19" r="3"></circle>
+              <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line>
+              <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line>
+            </svg>
+            <span>Compartir publicación</span>
+          </button>
+        </div>
+      </footer>
+    </div>
+  </dialog>
+
   <!-- Payment details modal -->
   <dialog class="modal" id="payment-modal">
     <div class="modal__inner">

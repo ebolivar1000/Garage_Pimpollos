@@ -149,18 +149,13 @@
     const priceArs = usdToArs(product.priceUsd, rate);
     const mlArs = usdToArs(product.priceMlUsd, rate);
     const savingsUsd = Math.max(0, product.priceMlUsd - product.priceUsd);
-    const savingsArs = usdToArs(savingsUsd, rate);
     const savingsPct =
       product.priceMlUsd > 0 ? Math.round((savingsUsd / product.priceMlUsd) * 100) : 0;
-    const usdDiscountPct = 10;
-    const priceUsdDiscount = product.priceUsd * (1 - usdDiscountPct / 100);
     const category = getCategoryById(catalog, product.categoryId);
     const waUrl = buildWhatsAppUrl(catalog.settings.whatsappPhone, waMessageForProduct(product));
-    const waUsdMsg = `Hola! Me interesa pagar en USD el producto: *${escapeHtml(product.title)}*. ¿Cómo coordino el pago con el ${usdDiscountPct}% de descuento?`;
-    const waUsdUrl = buildWhatsAppUrl(catalog.settings.whatsappPhone, waUsdMsg);
 
     return `
-    <article class="card ${product.isSold ? 'is-sold' : ''}" data-product-id="${product.id}" data-category-id="${product.categoryId}">
+    <article class="card card--compact ${product.isSold ? 'is-sold' : ''}" data-product-id="${product.id}" data-category-id="${product.categoryId}" data-open-detail="${product.id}">
       <div class="card__media">
         ${renderCarousel(product)}
         <span class="card__badge">${escapeHtml(product.condition)}</span>
@@ -168,49 +163,44 @@
         ${product.isSold ? `<div class="card__sold-ribbon">VENDIDO</div>` : ""}
       </div>
       <div class="card__body">
-        <h3 class="card__title">${escapeHtml(product.title)}</h3>
-        <div class="prices">
-          <div class="price-row price-row--primary">
-            <span class="price-row__label">Precio en Pesos</span>
-            <div class="price-stack">
-              <span class="price-current price-current--ars">${formatArs(priceArs)}</span>
-              <span class="price-secondary price-secondary--usd">${formatUsd(product.priceUsd)} USD</span>
-            </div>
+        <h3 class="card__title" title="${escapeHtml(product.title)}">${escapeHtml(product.title)}</h3>
+        
+        <div class="card__pricing">
+          <div class="card__price-row">
+            <span class="card__price-current">${formatArs(priceArs)}</span>
+            <span class="card__price-usd">${formatUsd(product.priceUsd)} USD</span>
           </div>
-          <div class="price-row">
-            <span class="price-row__label">Referencia Mercado Libre</span>
-            <div class="price-stack price-stack--ml">
-              <span class="price-ml">
-                <span class="ml-pill">ML</span>
-                ${formatArs(mlArs)}
-              </span>
-            </div>
+          ${savingsPct > 0 ? `
+          <div class="card__meta-row">
+            <span class="card__price-ml">ML ${formatArs(mlArs)}</span>
+            <span class="card__savings-tag">-${savingsPct}% OFF</span>
+          </div>` : ""}
+        </div>
+
+        <div class="card__view-detail">
+          <span>Ver características y fotos</span>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </div>
+
+        <div class="card__actions" style="margin-top: auto; padding-top: 8px;">
+          <div class="card__action-row">
+            <a class="btn btn--whatsapp btn--compact" href="${waUrl}" target="_blank" rel="noopener noreferrer" title="Consultar por WhatsApp">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/>
+              </svg>
+              <span>WhatsApp</span>
+            </a>
+            <button type="button" class="btn btn--share btn--compact" data-share-product="${product.id}" title="Compartir este producto">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="18" cy="5" r="3"></circle>
+                <circle cx="6" cy="12" r="3"></circle>
+                <circle cx="18" cy="19" r="3"></circle>
+                <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line>
+                <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line>
+              </svg>
+              <span>Compartir</span>
+            </button>
           </div>
-        </div>
-        <div class="savings" aria-label="Ahorro estimado">
-          Ahorro · ${formatArs(savingsArs)} <span>(${savingsPct}%)</span>
-        </div>
-        ${renderSpecs(product.properties)}
-        ${product.note ? `<p class="card__note">${escapeHtml(product.note)}</p>` : ""}
-        <div class="card__actions">
-          ${product.isSold 
-            ? `<button type="button" class="btn btn--buy" style="background: #9ca3af; color: #fff; cursor: not-allowed; opacity: 0.8;" disabled>VENDIDO</button>`
-            : `<button type="button" class="btn btn--buy" data-buy-product="${product.id}">Comprar / Pagar con Mercado Pago</button>
-               <a class="usd-note" href="${waUsdUrl}" target="_blank" rel="noopener noreferrer">
-                 💵 Pagando en USD tenés un ${usdDiscountPct}% de descuento (${formatUsd(priceUsdDiscount).replace('USD','').trim()} USD) · <strong>Consultanos por WhatsApp</strong>
-               </a>
-               <a class="btn btn--whatsapp btn--secondary" href="${waUrl}" target="_blank" rel="noopener noreferrer">Consultar por WhatsApp</a>`
-          }
-          <button type="button" class="btn btn--share" data-share-product="${product.id}" title="Compartir este producto">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <circle cx="18" cy="5" r="3"></circle>
-              <circle cx="6" cy="12" r="3"></circle>
-              <circle cx="18" cy="19" r="3"></circle>
-              <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line>
-              <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line>
-            </svg>
-            <span>Compartir producto</span>
-          </button>
         </div>
       </div>
     </article>`;
@@ -335,7 +325,196 @@
           card.classList.remove("card--highlighted");
         }, 6000);
       }
+      openProductDetailModal(targetId);
     }, 250);
+  }
+
+  
+  function openProductDetailModal(productId) {
+    const product = catalog?.products?.find((p) => p.id === productId);
+    if (!product) return;
+
+    const rate = catalog.settings.usdToArsRate;
+    const priceArs = usdToArs(product.priceUsd, rate);
+    const mlArs = usdToArs(product.priceMlUsd, rate);
+    const savingsUsd = Math.max(0, product.priceMlUsd - product.priceUsd);
+    const savingsArs = usdToArs(savingsUsd, rate);
+    const savingsPct =
+      product.priceMlUsd > 0 ? Math.round((savingsUsd / product.priceMlUsd) * 100) : 0;
+    const usdDiscountPct = 10;
+    const priceUsdDiscount = product.priceUsd * (1 - usdDiscountPct / 100);
+    const category = getCategoryById(catalog, product.categoryId);
+    const waUrl = buildWhatsAppUrl(catalog.settings.whatsappPhone, waMessageForProduct(product));
+    const waUsdMsg = `Hola! Me interesa pagar en USD el producto: *${escapeHtml(product.title)}*. ¿Cómo coordino el pago con el ${usdDiscountPct}% de descuento?`;
+    const waUsdUrl = buildWhatsAppUrl(catalog.settings.whatsappPhone, waUsdMsg);
+
+    // Badges
+    const condEl = document.getElementById("detail-condition");
+    if (condEl) condEl.textContent = product.condition || "Usado";
+    const catEl = document.getElementById("detail-category");
+    if (catEl) {
+      if (category) {
+        catEl.textContent = category.name;
+        catEl.style.display = "inline-block";
+      } else {
+        catEl.style.display = "none";
+      }
+    }
+
+    // Media Carousel
+    const mediaContainer = document.getElementById("detail-media-container");
+    if (mediaContainer) {
+      mediaContainer.innerHTML = renderCarousel(product);
+      initCarousels(mediaContainer);
+    }
+
+    // Title & Prices
+    const titleEl = document.getElementById("detail-title");
+    if (titleEl) titleEl.textContent = product.title;
+    const priceArsEl = document.getElementById("detail-price-ars");
+    if (priceArsEl) priceArsEl.textContent = formatArs(priceArs);
+    const priceUsdEl = document.getElementById("detail-price-usd");
+    if (priceUsdEl) priceUsdEl.textContent = formatUsd(product.priceUsd) + " USD";
+
+    // ML & Savings
+    const mlRow = document.getElementById("detail-ml-row");
+    const savingsEl = document.getElementById("detail-savings");
+    if (product.priceMlUsd > 0) {
+      document.getElementById("detail-price-ml").textContent = formatArs(mlArs);
+      document.getElementById("detail-savings-amount").textContent = formatArs(savingsArs);
+      document.getElementById("detail-savings-pct").textContent = `(${savingsPct}%)`;
+      if (mlRow) mlRow.style.display = "flex";
+      if (savingsEl) savingsEl.style.display = "inline-flex";
+    } else {
+      if (mlRow) mlRow.style.display = "none";
+      if (savingsEl) savingsEl.style.display = "none";
+    }
+
+    // USD Discount Note
+    const usdDiscountEl = document.getElementById("detail-usd-discount");
+    if (usdDiscountEl) {
+      usdDiscountEl.textContent = `${formatUsd(priceUsdDiscount).replace('USD', '').trim()} USD`;
+    }
+    const usdNoteEl = document.getElementById("detail-usd-note");
+    if (usdNoteEl) usdNoteEl.href = waUsdUrl;
+
+    // Specs
+    const specsContainer = document.getElementById("detail-specs-content");
+    if (specsContainer) {
+      const specsHtml = renderSpecs(product.properties);
+      specsContainer.innerHTML = specsHtml || '<p class="hint" style="margin: 0;">Sin especificaciones adicionales.</p>';
+    }
+
+    // Note
+    const noteSection = document.getElementById("detail-note-section");
+    const noteEl = document.getElementById("detail-note-content");
+    if (product.note && product.note.trim()) {
+      if (noteEl) noteEl.textContent = product.note;
+      if (noteSection) noteSection.style.display = "block";
+    } else {
+      if (noteSection) noteSection.style.display = "none";
+    }
+
+    // Action buttons
+    const buyBtn = document.getElementById("detail-btn-buy");
+    const waBtn = document.getElementById("detail-btn-wa");
+    const shareBtn = document.getElementById("detail-btn-share");
+
+    if (buyBtn) {
+      if (product.isSold) {
+        buyBtn.disabled = true;
+        buyBtn.textContent = "VENDIDO";
+        buyBtn.style.background = "#9ca3af";
+        buyBtn.style.cursor = "not-allowed";
+      } else {
+        buyBtn.disabled = false;
+        buyBtn.textContent = "Comprar / Pagar con Mercado Pago";
+        buyBtn.style.background = "";
+        buyBtn.style.cursor = "pointer";
+        buyBtn.onclick = () => {
+          document.getElementById("product-detail-modal")?.close();
+          openPaymentModal(product.id);
+        };
+      }
+    }
+
+    if (waBtn) waBtn.href = waUrl;
+    if (shareBtn) shareBtn.dataset.shareProduct = product.id;
+
+    const modal = document.getElementById("product-detail-modal");
+    if (modal) {
+      modal.showModal();
+    }
+  }
+
+  function initDetailTriggers(root = document) {
+    root.querySelectorAll("[data-open-detail]").forEach((card) => {
+      card.addEventListener("click", (e) => {
+        if (e.target.closest("button, a, .carousel__btn, .carousel__dot")) {
+          return;
+        }
+        const productId = card.dataset.openDetail;
+        openProductDetailModal(productId);
+      });
+    });
+  }
+
+  function initProductDetailModal() {
+    const modal = document.getElementById("product-detail-modal");
+    const closeBtn = document.getElementById("close-detail-modal");
+    if (!modal || !closeBtn) return;
+
+    closeBtn.addEventListener("click", () => {
+      modal.close();
+    });
+
+    modal.addEventListener("click", (e) => {
+      const rect = modal.getBoundingClientRect();
+      const isInDialog = (rect.top <= e.clientY && e.clientY <= rect.top + rect.height &&
+        rect.left <= e.clientX && e.clientX <= rect.left + rect.width);
+      if (!isInDialog) {
+        modal.close();
+      }
+    });
+
+    const shareBtn = document.getElementById("detail-btn-share");
+    if (shareBtn) {
+      shareBtn.addEventListener("click", async (e) => {
+        e.preventDefault();
+        const pId = shareBtn.dataset.shareProduct;
+        if (!pId) return;
+        const p = catalog.products.find((prod) => prod.id === pId);
+        if (!p) return;
+        const rate = catalog.settings.usdToArsRate;
+        const priceArs = usdToArs(p.priceUsd, rate);
+        const origin = window.location.origin.includes("localhost")
+          ? "https://lospimpollos.pages.dev"
+          : window.location.origin;
+        const shareUrl = `${origin}/p/${p.id}`;
+
+        const shareData = {
+          title: `${p.title} - ${formatUsd(p.priceUsd)} USD | El garage de los pimpollos`,
+          text: `Mirá esta publicación: ${p.title} (${formatArs(priceArs)} / ${formatUsd(p.priceUsd)} USD) en El garage de los pimpollos:`,
+          url: shareUrl,
+        };
+
+        if (navigator.share && navigator.canShare && navigator.canShare(shareData)) {
+          try {
+            await navigator.share(shareData);
+            return;
+          } catch (err) {
+            if (err.name === "AbortError") return;
+          }
+        }
+
+        try {
+          await navigator.clipboard.writeText(shareUrl);
+          showToastNotice("¡Enlace copiado al portapapeles! Listo para enviar por WhatsApp.");
+        } catch {
+          prompt("Copiá este enlace para compartir el producto:", shareUrl);
+        }
+      });
+    }
   }
 
   function renderProducts() {
@@ -377,6 +556,7 @@
     initCarousels(grid);
     initBuyButtons(grid);
     initShareButtons(grid);
+    initDetailTriggers(grid);
   }
 
   function applyBranding() {
@@ -579,6 +759,7 @@
   async function init() {
     initTopBanner();
     initPaymentModal();
+    initProductDetailModal();
     const sortSelect = document.getElementById("sort-select");
     if (sortSelect) {
       sortSelect.addEventListener("change", () => {
